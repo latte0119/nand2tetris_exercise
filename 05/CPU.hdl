@@ -39,5 +39,46 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+
+    And16(a=instruction,b=instruction,out[15]=itype,out[12]=a,out[11]=c1,out[10]=c2,out[9]=c3,out[8]=c4,out[7]=c5,out[6]=c6,out[5]=d1,out[4]=d2,out[3]=d3,out[2]=j1,out[1]=j2,out[0]=j3);
+    Mux16(a=A,b=inM,sel=a,out=op);
+    ALU(x=D,y=op,zx=c1,nx=c2,zy=c3,ny=c4,f=c5,no=c6,out=outalu,zr=zr,ng=ng);
+
+    Not(in=itype,out=notitype);
+    
+    Mux16(a=instruction,b=outalu,sel=itype,out=newA);
+    Or(a=notitype,b=d1,out=loadA);
+    ARegister(in=newA,load=loadA,out=A);
+
+    And(a=itype,b=d2,out=loadD);
+    And(a=itype,b=d3,out=writeM);
+    DRegister(in=outalu,load=loadD,out=D);
+    Register(in=newPC,load=true,out=PC);
+
+    Or(a=zr,b=ng,out=pgtmp);
+    Not(in=pgtmp,out=pg);
+    
+    Inc16(in=PC,out=pcnull);
+    And16(a=A,b=A,out=pcjmp);
+    Mux16(a=pcnull,b=pcjmp,sel=pg,out=pcjgt);
+    Mux16(a=pcnull,b=pcjmp,sel=zr,out=pcjeq);
+    Mux16(a=pcjmp,b=pcnull,sel=ng,out=pcjge);
+    Mux16(a=pcnull,b=pcjmp,sel=ng,out=pcjlt);
+    Mux16(a=pcjmp,b=pcnull,sel=zr,out=pcjne);
+    Mux16(a=pcjmp,b=pcnull,sel=pg,out=pcjle);
+
+    Mux16(a=pcnull,b=pcjgt,sel=j3,out=pc02);
+    Mux16(a=pcjeq,b=pcjge,sel=j3,out=pc24);
+    Mux16(a=pcjlt,b=pcjne,sel=j3,out=pc46);
+    Mux16(a=pcjle,b=pcjmp,sel=j3,out=pc68);
+    Mux16(a=pc02,b=pc24,sel=j2,out=pc04);
+    Mux16(a=pc46,b=pc68,sel=j2,out=pc48);
+    Mux16(a=pc04,b=pc48,sel=j1,out=pc08);
+    Mux16(a=pcnull,b=pc08,sel=itype,out=newPCtmp);
+    Mux16(a=newPCtmp,b=false,sel=reset,out=newPC);
+
+    And16(a=outalu,b=outalu,out=outM);
+    And16(a=A,b=A,out[0..14]=addressM);
+    And16(a=PC,b=PC,out[0..14]=pc);
+
 }
