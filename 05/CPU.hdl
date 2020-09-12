@@ -67,13 +67,8 @@ CHIP CPU {
     Mux16(a=pcjmp,b=pcnull,sel=zr,out=pcjne);
     Mux16(a=pcjmp,b=pcnull,sel=pg,out=pcjle);
 
-    Mux16(a=pcnull,b=pcjgt,sel=j3,out=pc02);
-    Mux16(a=pcjeq,b=pcjge,sel=j3,out=pc24);
-    Mux16(a=pcjlt,b=pcjne,sel=j3,out=pc46);
-    Mux16(a=pcjle,b=pcjmp,sel=j3,out=pc68);
-    Mux16(a=pc02,b=pc24,sel=j2,out=pc04);
-    Mux16(a=pc46,b=pc68,sel=j2,out=pc48);
-    Mux16(a=pc04,b=pc48,sel=j1,out=pc08);
+    Mux8Way16(a=pcnull,b=pcjgt,c=pcjeq,d=pcjge,e=pcjlt,f=pcjne,g=pcjle,h=pcjmp,sel[2]=j1,sel[1]=j2,sel[0]=j3,out=pc08);
+
     Mux16(a=pcnull,b=pc08,sel=itype,out=newPCtmp);
     Mux16(a=newPCtmp,b=false,sel=reset,out=newPC);
 
