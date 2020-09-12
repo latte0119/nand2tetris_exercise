@@ -53,7 +53,7 @@ CHIP CPU {
     And(a=itype,b=d2,out=loadD);
     And(a=itype,b=d3,out=writeM);
     DRegister(in=outalu,load=loadD,out=D);
-    Register(in=newPC,load=true,out=PC);
+    PC(in=newPC,load=true,out=PC);
 
     Or(a=zr,b=ng,out=pgtmp);
     Not(in=pgtmp,out=pg);
