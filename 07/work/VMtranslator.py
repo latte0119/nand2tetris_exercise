@@ -1,5 +1,6 @@
 import os,sys
 import re
+import random,string
 from enum import Enum
 
 #与えられたファイルがvmファイルかどうか調べる
@@ -61,6 +62,10 @@ def verify_code_format(code):
         assert len(code)==2,'error : invalid syntax {}'.format(code)
 
 
+#ランダムなラベルを生成
+def generate_random_label():
+    return ''.join(random.choices(string.ascii_letters,k=20))
+
 
 class Parser:
     def __init__(self,filepath):
@@ -89,7 +94,6 @@ class CodeWriter:
         if commandtype==CommandType.C_ARITHMETIC:
             self.write_arithmetic(code[0])
 
-        pass
 
     def write_arithmetic(self,command):
         if command in {'neg','not'}:
@@ -117,8 +121,26 @@ class CodeWriter:
             if command=='or':
                 print('M=M|D',file=self.ost)
             
+
         else:
-            print('M-D',file=self.ost)
+            print('D=M-D',file=self.ost)
+            true_label=generate_random_label()
+            false_label=generate_random_label()
+            print('@',false_label,sep='',file=self.ost)
+            if command=='eq':
+                print('D;JNE',file=self.ost)
+            if command=='gt':
+                print('D;JLE',file=self.ost)
+            if command=='lt':
+                print('D;JGE',file=self.ost)
+            print('@',TEMP,sep='',file=self.ost)
+            print('M=-1',file=self.ost)
+            print('@',true_label,sep='',file=self.ost)
+            print('0;JMP',file=self.ost)
+            print('({})'.format(false_label),file=self.ost)
+            print('@',TEMP,sep='',file=self.ost)
+            print('M=0',file=self.ost)
+            print('({})'.format(true_label),file=self.ost)
 
         self.write_push_pop(CommandType.C_PUSH,'temp',0)
         
@@ -203,12 +225,9 @@ if __name__=='__main__':
         filelist=[path]
     else:
         filelist=[os.path.join(path,filename) for filename in os.listdir(path)]
-    
     programs=list(map(lambda filepath :Parser(filepath),filter(is_vm_file,filelist)))
 
-
     basename=os.path.splitext(os.path.basename(os.path.abspath(path)))[0]
-    print(basename)
     codewriter=CodeWriter('{}.asm'.format(basename))
     for p in programs:
         write_all(p,codewriter)
