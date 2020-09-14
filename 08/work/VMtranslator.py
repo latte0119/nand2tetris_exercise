@@ -314,21 +314,21 @@ class CodeWriter:
         
         #push return_address
         print('@',return_address,sep='',file=self.ost)
-        print('M=A',file=self.ost)
+        print('D=A',file=self.ost)
         print('@',TEMP,sep='',file=self.ost)
         print('M=D',file=self.ost)
         self.write_push_pop(CommandType.C_PUSH,'temp',0)
 
         #push LCL
         print('@LCL',file=self.ost)
-        print('M=A',file=self.ost)
+        print('D=M',file=self.ost)
         print('@',TEMP,sep='',file=self.ost)
         print('M=D',file=self.ost)
         self.write_push_pop(CommandType.C_PUSH,'temp',0)
 
         #push ARG
         print('@ARG',file=self.ost)
-        print('M=A',file=self.ost)
+        print('D=M',file=self.ost)
         print('@',TEMP,sep='',file=self.ost)
         print('M=D',file=self.ost)
         self.write_push_pop(CommandType.C_PUSH,'temp',0)
@@ -338,7 +338,7 @@ class CodeWriter:
         self.write_push_pop(CommandType.C_PUSH,'pointer',1)
 
         print('@SP',file=self.ost)
-        print('D=A',file=self.ost)
+        print('D=M',file=self.ost)
         print('@LCL',file=self.ost)
         print('M=D',file=self.ost) # LCL=SP
         print('@',n+5,sep='',file=self.ost)
@@ -358,7 +358,7 @@ class CodeWriter:
 
     def write_return(self):
         print('@LCL',file=self.ost)
-        print('D=A',file=self.ost)
+        print('D=M',file=self.ost)
         print('@',TEMP,sep='',file=self.ost)
         print('M=D',file=self.ost) #temp0=LCL
         print('@5',file=self.ost)
