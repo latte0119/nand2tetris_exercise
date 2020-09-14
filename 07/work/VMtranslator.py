@@ -278,7 +278,7 @@ def write_all(p,codewriter):
         codewriter.write_code(li)
 
 if __name__=='__main__':
-    assert len(sys.argv)!=2,'error : incorrect number of arguments'
+    assert len(sys.argv)==2,'error : incorrect number of arguments'
 
     path=sys.argv[1]
     
