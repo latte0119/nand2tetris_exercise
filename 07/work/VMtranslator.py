@@ -107,11 +107,11 @@ class CodeWriter:
         self.write_push_pop(CommandType.C_POP,'temp',1)
         self.write_push_pop(CommandType.C_POP,'temp',0)
         
-        print('@',TEMP+1,sep='',file=self.ost)
-        print('D=M',file=self.ost)
-        print('@',TEMP,sep='',file=self.ost)
 
         if command in {'add','sub','and','or'}:
+            print('@',TEMP+1,sep='',file=self.ost)
+            print('D=M',file=self.ost)
+            print('@',TEMP,sep='',file=self.ost)
             if command=='add':
                 print('M=M+D',file=self.ost)
             if command=='sub':
@@ -123,24 +123,84 @@ class CodeWriter:
             
 
         else:
-            print('D=M-D',file=self.ost)
             true_label=generate_random_label()
             false_label=generate_random_label()
-            print('@',false_label,sep='',file=self.ost)
+            end_label=generate_random_label()
+
             if command=='eq':
-                print('D;JNE',file=self.ost)
-            if command=='gt':
-                print('D;JLE',file=self.ost)
-            if command=='lt':
-                print('D;JGE',file=self.ost)
+                print('@',TEMP+1,sep='',file=self.ost)
+                print('D=M',file=self.ost) #D=y
+                print('@',TEMP,sep='',file=self.ost)
+                print('D=M-D',file=self.ost)  #D=x-y
+                print('@',true_label,sep='',file=self.ost)
+                print('D;JEQ',file=self.ost)  #if x-y==0 then goto (true)
+                print('@',false_label,sep='',file=self.ost)
+                print('0;JMP',file=self.ost) #else goto (false)
+
+            else:
+                ## naive:
+                # print('@',TEMP+1,sep='',file=self.ost)
+                # print('D=M',file=self.ost) #D=y
+                # print('@',TEMP,sep='',file=self.ost)
+                # print('D=M-D',file=self.ost)  #D=x-y
+                # print('@',true_label,sep='',file=self.ost)
+                # if command=='lt':
+                #     print('D;JLT',file=self.ost)  #if x-y<0 then goto (true)
+                # else:
+                #     print('D;JGT',file=self.ost)  #if x-y>0 then goto (true)
+                # print('@',false_label,sep='',file=self.ost)
+                # print('0;JMP',file=self.ost) #else goto (false)
+
+                #lt:x<y?  gt:x>y?
+                x,y=0,1
+                if command=='lt':
+                    x,y=y,x
+
+                #{lt,gt}:x>y?
+                
+                x_neg_label=generate_random_label()
+                eval_diff_label=generate_random_label()
+                print('@',TEMP+x,sep='',file=self.ost)
+                print('D=M',file=self.ost) #D=x
+                print('@',x_neg_label,sep='',file=self.ost) 
+                print('D;JLT',file=self.ost) #if x<0 then goto (x_neg_label)
+                print('@',TEMP+y,sep='',file=self.ost)
+                print('D=M',file=self.ost) #D=y
+                print('@',true_label,sep='',file=self.ost)
+                print('D;JLT',file=self.ost) #(x>=0)  if y<0 then goto (true)  
+                print('@',eval_diff_label,sep='',file=self.ost)
+                print('0;JMP',file=self.ost) # goto (eval_diff)
+                
+                print('({})'.format(x_neg_label),file=self.ost) #(x_neg_label)
+                print('@',TEMP+y,sep='',file=self.ost)
+                print('D=M',file=self.ost) #D=y
+                print('@',false_label,sep='',file=self.ost)
+                print('D;JGE',file=self.ost) #(x<0)  if y>=0 then goto (false)  
+                print('@',eval_diff_label,sep='',file=self.ost)
+                print('0;JMP',file=self.ost) # goto (eval_diff)
+
+                print('({})'.format(eval_diff_label),file=self.ost) #(eval_diff)
+                print('@',TEMP+y,sep='',file=self.ost)
+                print('D=M',file=self.ost) #D=y
+                print('@',TEMP+x,sep='',file=self.ost)
+                print('D=M-D',file=self.ost)  #D=x-y
+                print('@',true_label,sep='',file=self.ost)
+                print('D;JGT',file=self.ost)  #if x-y>0 then goto (true)
+                print('@',false_label,sep='',file=self.ost)
+                print('0;JMP',file=self.ost) #else goto (false)
+
+            print('({})'.format(true_label),file=self.ost) #(true)
             print('@',TEMP,sep='',file=self.ost)
-            print('M=-1',file=self.ost)
-            print('@',true_label,sep='',file=self.ost)
-            print('0;JMP',file=self.ost)
-            print('({})'.format(false_label),file=self.ost)
+            print('M=-1',file=self.ost)  #R0=-1 
+            print('@',end_label,sep='',file=self.ost) 
+            print('0;JMP',file=self.ost) #goto (end)
+
+            print('({})'.format(false_label),file=self.ost) #(false)
             print('@',TEMP,sep='',file=self.ost)
-            print('M=0',file=self.ost)
-            print('({})'.format(true_label),file=self.ost)
+            print('M=0',file=self.ost) #R0=0
+            
+            print('({})'.format(end_label),file=self.ost) #(end)
+           
 
         self.write_push_pop(CommandType.C_PUSH,'temp',0)
         
