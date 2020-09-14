@@ -23,6 +23,8 @@ class CommandType(Enum):
 POINTER=3
 TEMP=5
 
+WORKSPACE=13
+
 #dict{command:CommandType}
 command_type_table={
     **{s:CommandType.C_ARITHMETIC for s in {'add','sub','neg','eq','gt','lt','and','or','not'}},
@@ -80,6 +82,7 @@ class CodeWriter:
     def __init__(self,filepath):
         self.ost=open(filepath,mode='w')
         self.scope=''
+       
         print('@256',file=self.ost)
         print('D=A',file=self.ost)
         print('@SP',file=self.ost)
@@ -125,21 +128,21 @@ class CodeWriter:
 
     def write_arithmetic(self,command):
         if command in {'neg','not'}:
-            self.write_push_pop(CommandType.C_POP,'temp',0)
-            print('@',TEMP,sep='',file=self.ost)
+            self.write_push_pop(CommandType.C_POP,'temp',8)
+            print('@',WORKSPACE,sep='',file=self.ost)
             print('M=-M' if command=='neg' else 'M=!M',file=self.ost)
-            self.write_push_pop(CommandType.C_PUSH,'temp',0)
+            self.write_push_pop(CommandType.C_PUSH,'temp',8)
             return
 
 
-        self.write_push_pop(CommandType.C_POP,'temp',1)
-        self.write_push_pop(CommandType.C_POP,'temp',0)
+        self.write_push_pop(CommandType.C_POP,'temp',9)
+        self.write_push_pop(CommandType.C_POP,'temp',8)
         
 
         if command in {'add','sub','and','or'}:
-            print('@',TEMP+1,sep='',file=self.ost)
+            print('@',WORKSPACE+1,sep='',file=self.ost)
             print('D=M',file=self.ost)
-            print('@',TEMP,sep='',file=self.ost)
+            print('@',WORKSPACE,sep='',file=self.ost)
             if command=='add':
                 print('M=M+D',file=self.ost)
             if command=='sub':
@@ -156,9 +159,9 @@ class CodeWriter:
             end_label=generate_random_label()
 
             if command=='eq':
-                print('@',TEMP+1,sep='',file=self.ost)
+                print('@',WORKSPACE+1,sep='',file=self.ost)
                 print('D=M',file=self.ost) #D=y
-                print('@',TEMP,sep='',file=self.ost)
+                print('@',WORKSPACE,sep='',file=self.ost)
                 print('D=M-D',file=self.ost)  #D=x-y
                 print('@',true_label,sep='',file=self.ost)
                 print('D;JEQ',file=self.ost)  #if x-y==0 then goto (true)
@@ -167,9 +170,9 @@ class CodeWriter:
 
             else:
                 ## naive:
-                # print('@',TEMP+1,sep='',file=self.ost)
+                # print('@',WORKSPACE+1,sep='',file=self.ost)
                 # print('D=M',file=self.ost) #D=y
-                # print('@',TEMP,sep='',file=self.ost)
+                # print('@',WORKSPACE,sep='',file=self.ost)
                 # print('D=M-D',file=self.ost)  #D=x-y
                 # print('@',true_label,sep='',file=self.ost)
                 # if command=='lt':
@@ -188,11 +191,11 @@ class CodeWriter:
                 
                 x_neg_label=generate_random_label()
                 eval_diff_label=generate_random_label()
-                print('@',TEMP+x,sep='',file=self.ost)
+                print('@',WORKSPACE+x,sep='',file=self.ost)
                 print('D=M',file=self.ost) #D=x
                 print('@',x_neg_label,sep='',file=self.ost) 
                 print('D;JLT',file=self.ost) #if x<0 then goto (x_neg_label)
-                print('@',TEMP+y,sep='',file=self.ost)
+                print('@',WORKSPACE+y,sep='',file=self.ost)
                 print('D=M',file=self.ost) #D=y
                 print('@',true_label,sep='',file=self.ost)
                 print('D;JLT',file=self.ost) #(x>=0)  if y<0 then goto (true)  
@@ -200,7 +203,7 @@ class CodeWriter:
                 print('0;JMP',file=self.ost) # goto (eval_diff)
                 
                 print('({})'.format(x_neg_label),file=self.ost) #(x_neg_label)
-                print('@',TEMP+y,sep='',file=self.ost)
+                print('@',WORKSPACE+y,sep='',file=self.ost)
                 print('D=M',file=self.ost) #D=y
                 print('@',false_label,sep='',file=self.ost)
                 print('D;JGE',file=self.ost) #(x<0)  if y>=0 then goto (false)  
@@ -208,9 +211,9 @@ class CodeWriter:
                 print('0;JMP',file=self.ost) # goto (eval_diff)
 
                 print('({})'.format(eval_diff_label),file=self.ost) #(eval_diff)
-                print('@',TEMP+y,sep='',file=self.ost)
+                print('@',WORKSPACE+y,sep='',file=self.ost)
                 print('D=M',file=self.ost) #D=y
-                print('@',TEMP+x,sep='',file=self.ost)
+                print('@',WORKSPACE+x,sep='',file=self.ost)
                 print('D=M-D',file=self.ost)  #D=x-y
                 print('@',true_label,sep='',file=self.ost)
                 print('D;JGT',file=self.ost)  #if x-y>0 then goto (true)
@@ -218,19 +221,19 @@ class CodeWriter:
                 print('0;JMP',file=self.ost) #else goto (false)
 
             print('({})'.format(true_label),file=self.ost) #(true)
-            print('@',TEMP,sep='',file=self.ost)
+            print('@',WORKSPACE,sep='',file=self.ost)
             print('M=-1',file=self.ost)  #R0=-1 
             print('@',end_label,sep='',file=self.ost) 
             print('0;JMP',file=self.ost) #goto (end)
 
             print('({})'.format(false_label),file=self.ost) #(false)
-            print('@',TEMP,sep='',file=self.ost)
+            print('@',WORKSPACE,sep='',file=self.ost)
             print('M=0',file=self.ost) #R0=0
             
             print('({})'.format(end_label),file=self.ost) #(end)
            
 
-        self.write_push_pop(CommandType.C_PUSH,'temp',0)
+        self.write_push_pop(CommandType.C_PUSH,'temp',8)
         
     def write_push_pop(self,commandtype,segment,index):
         mp={
@@ -303,8 +306,8 @@ class CodeWriter:
         print('0;JMP',file=self.ost)
     
     def write_if_goto(self,label):
-        self.write_push_pop(CommandType.C_POP,'temp',0)
-        print('@',TEMP,sep='',file=self.ost)
+        self.write_push_pop(CommandType.C_POP,'temp',8)
+        print('@',WORKSPACE,sep='',file=self.ost)
         print('D=M',file=self.ost)
         print('@',self.modify_label(label),sep='',file=self.ost)
         print('D;JNE',file=self.ost)
@@ -315,23 +318,23 @@ class CodeWriter:
         #push return_address
         print('@',return_address,sep='',file=self.ost)
         print('D=A',file=self.ost)
-        print('@',TEMP,sep='',file=self.ost)
+        print('@',WORKSPACE,sep='',file=self.ost)
         print('M=D',file=self.ost)
-        self.write_push_pop(CommandType.C_PUSH,'temp',0)
+        self.write_push_pop(CommandType.C_PUSH,'temp',8)
 
         #push LCL
         print('@LCL',file=self.ost)
         print('D=M',file=self.ost)
-        print('@',TEMP,sep='',file=self.ost)
+        print('@',WORKSPACE,sep='',file=self.ost)
         print('M=D',file=self.ost)
-        self.write_push_pop(CommandType.C_PUSH,'temp',0)
+        self.write_push_pop(CommandType.C_PUSH,'temp',8)
 
         #push ARG
         print('@ARG',file=self.ost)
         print('D=M',file=self.ost)
-        print('@',TEMP,sep='',file=self.ost)
+        print('@',WORKSPACE,sep='',file=self.ost)
         print('M=D',file=self.ost)
-        self.write_push_pop(CommandType.C_PUSH,'temp',0)
+        self.write_push_pop(CommandType.C_PUSH,'temp',8)
 
 
         self.write_push_pop(CommandType.C_PUSH,'pointer',0)
@@ -359,13 +362,13 @@ class CodeWriter:
     def write_return(self):
         print('@LCL',file=self.ost)
         print('D=M',file=self.ost)
-        print('@',TEMP,sep='',file=self.ost)
-        print('M=D',file=self.ost) #temp0=LCL
+        print('@',WORKSPACE,sep='',file=self.ost)
+        print('M=D',file=self.ost) #R13=LCL
         print('@5',file=self.ost)
         print('A=D-A',file=self.ost) #A=LCL-5
         print('D=M',file=self.ost) #D=*(LCL-5)  <- RET
-        print('@',TEMP+1,sep='',file=self.ost)
-        print('M=D',file=self.ost) #temp1=RET
+        print('@',WORKSPACE+1,sep='',file=self.ost)
+        print('M=D',file=self.ost) #R14=RET
 
         self.write_push_pop(CommandType.C_POP,'argument',0)
 
@@ -375,13 +378,13 @@ class CodeWriter:
         print('M=D',file=self.ost)
 
         for rg in ['THAT','THIS','ARG','LCL']:
-            print('@',TEMP,sep='',file=self.ost)
+            print('@',WORKSPACE,sep='',file=self.ost)
             print('AM=M-1',file=self.ost)
             print('D=M',file=self.ost)
             print('@',rg,sep='',file=self.ost)
             print('M=D',file=self.ost)
         
-        print('@',TEMP+1,sep='',file=self.ost)
+        print('@',WORKSPACE+1,sep='',file=self.ost)
         print('A=M',file=self.ost)
         print('0;JMP',file=self.ost)
         
