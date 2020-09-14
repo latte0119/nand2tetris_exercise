@@ -3,12 +3,12 @@ import re
 import random,string
 from enum import Enum
 
-#与えられたファイルがvmファイルかどうか調べる
 def is_vm_file(filename):
+    """与えられたファイルがvmファイルかどうか調べる"""
     return True if os.path.isfile(filename) and re.fullmatch(r'.*vm',filename) else False
 
-#command(例:'add')の分類
 class CommandType(Enum):
+    """command(例:'add')の分類"""
     C_ARITHMETIC=0
     C_PUSH=1
     C_POP=2
@@ -36,20 +36,18 @@ command_type_table={
     'return':CommandType.C_RETURN
 }
 
-#command(例:'add')に対して対応するCommandTypeを返す
 def classify_command_type(command):
+    """command(例:'add')に対して対応するCommandTypeを返す"""
     assert command in command_type_table,'error : unknown command'
     return command_type_table[command]
 
-#プログラムを一行受け取って(例:'push local 1 \\local[1]をpush')，
-#コメントを取り除き，トークンに分解したlistを返す
-#['push','local','1']
 def parse_line(line):
+    """プログラムを一行受け取って，コメントを取り除き，トークンに分解する"""
     line=re.sub(r'\/\/.*','',line)
     return list(filter(lambda s:len(s)>0,re.split(r'\s+',line)))
 
-#引数の数を検証する
 def verify_code_format(code):
+    """引数の数を検証する"""
     assert len(code)>0,'error : empty code'
     commandtype=classify_command_type(code[0])
     if commandtype in {CommandType.C_PUSH,CommandType.C_POP,CommandType.C_FUNCTION,CommandType.C_CALL}:
@@ -62,12 +60,13 @@ def verify_code_format(code):
         assert len(code)==2,'error : invalid syntax {}'.format(code)
 
 
-#ランダムなラベルを生成
 def generate_random_label():
+    """アルファベット20文字のランダムなラベルを生成"""
     return ''.join(random.choices(string.ascii_letters,k=20))
 
 
 class Parser:
+    """指定されたvmファイルのコードをパースして保持する"""
     def __init__(self,filepath):
         self.filename=os.path.splitext(os.path.basename(filepath))[0]
         with open(filepath) as f:
@@ -77,13 +76,15 @@ class Parser:
 
 
 class CodeWriter:
-    def __init__(self,filepath): #書き込み先
+    """パースされたコードをhackアセンブリに変換し，filepathで指定されたファイルに書き込む"""
+    def __init__(self,filepath):
         self.ost=open(filepath,mode='w')
     
-    def set_filename(self,filename): #読み込むファイル名を設定
+    def set_filename(self,filename):
         self.filename=filename
     
     def write_code(self,code):
+        """code: ( 例 : [ 'push' , 'local' , 1 ] )を受け取って，適切に書き込みを行う"""
         verify_code_format(code)
 
         commandtype=classify_command_type(code[0])
@@ -277,7 +278,7 @@ def write_all(p,codewriter):
         codewriter.write_code(li)
 
 if __name__=='__main__':
-    assert len(sys.argv)>1,'error : incorrect number of arguments'
+    assert len(sys.argv)!=2,'error : incorrect number of arguments'
 
     path=sys.argv[1]
     
@@ -285,6 +286,7 @@ if __name__=='__main__':
         filelist=[path]
     else:
         filelist=[os.path.join(path,filename) for filename in os.listdir(path)]
+        
     programs=list(map(lambda filepath :Parser(filepath),filter(is_vm_file,filelist)))
 
     basename=os.path.splitext(os.path.basename(os.path.abspath(path)))[0]
