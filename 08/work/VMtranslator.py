@@ -79,10 +79,19 @@ class CodeWriter:
     """パースされたコードをhackアセンブリに変換し，filepathで指定されたファイルに書き込む"""
     def __init__(self,filepath):
         self.ost=open(filepath,mode='w')
-    
+        self.scope=''
+        print('@256',file=self.ost)
+        print('D=A',file=self.ost)
+        print('@SP',file=self.ost)
+        print('M=D',file=self.ost)
+        self.write_call('Sys.init',0)
+            
     def set_filename(self,filename):
         self.filename=filename
     
+    def modify_label(self,label):
+        return '$'.join({self.scope,label})
+
     def write_code(self,code):
         """code: ( 例 : [ 'push' , 'local' , 1 ] )を受け取って，適切に書き込みを行う"""
         verify_code_format(code)
@@ -94,6 +103,24 @@ class CodeWriter:
         
         if commandtype==CommandType.C_ARITHMETIC:
             self.write_arithmetic(code[0])
+
+        if commandtype==CommandType.C_LABEL:
+            self.write_label(code[1])
+        
+        if commandtype==CommandType.C_GOTO:
+            self.write_goto(code[1])
+
+        if commandtype==CommandType.C_IF:
+            self.write_if_goto(code[1])
+        
+        if commandtype==CommandType.C_FUNCTION:
+            self.write_function(code[1],int(code[2]))
+        
+        if commandtype==CommandType.C_CALL:
+            self.write_call(code[1],int(code[2]))
+
+        if commandtype==CommandType.C_RETURN:
+            self.write_return()
 
 
     def write_arithmetic(self,command):
@@ -268,6 +295,99 @@ class CodeWriter:
                 print('@',mp[segment],sep='',file=self.ost)
                 print('M=M-D',file=self.ost)
 
+    def write_label(self,label):
+        print('({})'.format(self.modify_label(label)),file=self.ost)
+    
+    def write_goto(self,label):
+        print('@',self.modify_label(label),sep='',file=self.ost)
+        print('0;JMP',file=self.ost)
+    
+    def write_if_goto(self,label):
+        self.write_push_pop(CommandType.C_POP,'temp',0)
+        print('@',TEMP,sep='',file=self.ost)
+        print('D=M',file=self.ost)
+        print('@',self.modify_label(label),sep='',file=self.ost)
+        print('D;JNE',file=self.ost)
+    
+    def write_call(self,functionname,n):
+        return_address=generate_random_label()
+        
+        #push return_address
+        print('@',return_address,sep='',file=self.ost)
+        print('M=A',file=self.ost)
+        print('@',TEMP,sep='',file=self.ost)
+        print('M=D',file=self.ost)
+        self.write_push_pop(CommandType.C_PUSH,'temp',0)
+
+        #push LCL
+        print('@LCL',file=self.ost)
+        print('M=A',file=self.ost)
+        print('@',TEMP,sep='',file=self.ost)
+        print('M=D',file=self.ost)
+        self.write_push_pop(CommandType.C_PUSH,'temp',0)
+
+        #push ARG
+        print('@ARG',file=self.ost)
+        print('M=A',file=self.ost)
+        print('@',TEMP,sep='',file=self.ost)
+        print('M=D',file=self.ost)
+        self.write_push_pop(CommandType.C_PUSH,'temp',0)
+
+
+        self.write_push_pop(CommandType.C_PUSH,'pointer',0)
+        self.write_push_pop(CommandType.C_PUSH,'pointer',1)
+
+        print('@SP',file=self.ost)
+        print('D=A',file=self.ost)
+        print('@LCL',file=self.ost)
+        print('M=D',file=self.ost) # LCL=SP
+        print('@',n+5,sep='',file=self.ost)
+        print('D=D-A',file=self.ost)
+        print('@ARG',file=self.ost)
+        print('M=D',file=self.ost) #ARG=SP-n-5
+        
+        print('@',functionname,sep='',file=self.ost)
+        print('0;JMP',file=self.ost)
+        print('({})'.format(return_address),file=self.ost)
+        
+    def write_function(self,functionname,k):
+        self.scope=functionname
+        print('({})'.format(functionname),file=self.ost)
+        for _ in range(k):
+            self.write_push_pop(CommandType.C_PUSH,'constant',0)
+
+    def write_return(self):
+        print('@LCL',file=self.ost)
+        print('D=A',file=self.ost)
+        print('@',TEMP,sep='',file=self.ost)
+        print('M=D',file=self.ost) #temp0=LCL
+        print('@5',file=self.ost)
+        print('A=D-A',file=self.ost) #A=LCL-5
+        print('D=M',file=self.ost) #D=*(LCL-5)  <- RET
+        print('@',TEMP+1,sep='',file=self.ost)
+        print('M=D',file=self.ost) #temp1=RET
+
+        self.write_push_pop(CommandType.C_POP,'argument',0)
+
+        print('@ARG',file=self.ost)
+        print('D=A+1',file=self.ost)
+        print('@SP',file=self.ost)
+        print('M=D',file=self.ost)
+
+        for rg in ['THAT','THIS','ARG','LCL']:
+            print('@',TEMP,sep='',file=self.ost)
+            print('AM=M-1',file=self.ost)
+            print('D=M',file=self.ost)
+            print('@',rg,sep='',file=self.ost)
+            print('M=D',file=self.ost)
+        
+        print('@',TEMP+1,sep='',file=self.ost)
+        print('A=M',file=self.ost)
+        print('0;JMP',file=self.ost)
+        
+
+        
+
     def __del__(self):
         self.ost.close()
 
@@ -278,7 +398,7 @@ def write_all(p,codewriter):
         codewriter.write_code(li)
 
 if __name__=='__main__':
-    assert len(sys.argv)!=2,'error : incorrect number of arguments'
+    assert len(sys.argv)==2,'error : incorrect number of arguments'
 
     path=sys.argv[1]
     
