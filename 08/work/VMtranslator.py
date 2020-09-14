@@ -370,7 +370,7 @@ class CodeWriter:
         self.write_push_pop(CommandType.C_POP,'argument',0)
 
         print('@ARG',file=self.ost)
-        print('D=A+1',file=self.ost)
+        print('D=M+1',file=self.ost)
         print('@SP',file=self.ost)
         print('M=D',file=self.ost)
 
