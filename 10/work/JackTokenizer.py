@@ -40,7 +40,7 @@ class Token(NamedTuple):
         elif body == "&":
             body = "&amp;"
 
-        return f"<{label}> {body} </{label}>"
+        return (label, body)
 
 
 def tokenize(code):
@@ -115,5 +115,5 @@ class JackTokenizer:
         with open(f"{basename}T.xml", mode="w") as f:
             print("<tokens>", file=f)
             for token in self.tokens:
-                print(token.as_xml(), file=f)
+                print("<{0}> {1} </{0}>".format(*token.as_xml()), file=f)
             print("</tokens>", file=f)

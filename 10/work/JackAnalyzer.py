@@ -27,3 +27,4 @@ if __name__ == "__main__":
 
     for f in filelist:
         jt = JackTokenizer(f)
+        jt.output_as_xml()
