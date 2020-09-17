@@ -1,8 +1,8 @@
 import sys
 import os
 import re
-
 from JackTokenizer import JackTokenizer
+from CompilationEngine import CompilationEngine
 
 
 def is_jack_file(filename):
@@ -21,10 +21,11 @@ if __name__ == "__main__":
     if os.path.isfile(path):
         filelist = [path]
     else:
-        filelist = [os.path.join(path, filename) for filename in os.listdir(path)]
+        filelist = [os.path.join(path, filepath) for filepath in os.listdir(path)]
 
-    filelist = list(filter(lambda filename: is_jack_file(filename), filelist))
+    filelist = list(filter(lambda filepath: is_jack_file(filepath), filelist))
 
-    for f in filelist:
-        jt = JackTokenizer(f)
-        jt.output_as_xml()
+    for filepath in filelist:
+        jt = JackTokenizer(filepath)
+        ce = CompilationEngine(filepath, jt.tokens)
+        ce.output()
