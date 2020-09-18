@@ -59,3 +59,6 @@ class SymbolTable:
 
     def varCount(self, scopekind):
         return self.var_count[scopekind]
+
+    def isDefined(self, name):
+        return name in self.classScope or name in self.subroutineScope
