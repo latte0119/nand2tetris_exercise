@@ -1,7 +1,6 @@
 from typing import List
 from JackTokenizer import Token, TokenType
 import xml.etree.ElementTree as ET
-import xml.dom.minidom as md
 import os
 
 
@@ -10,6 +9,33 @@ def check(token, kind=None, value=None):
         assert token.kind == kind, f"expected kind : {kind} actual : {token.kind}"
     if value is not None:
         assert token.value == value, f"expected value : {value} actual : {token.value}"
+
+
+def output_indent(num, file):
+    for _ in range(num * 2):
+        print(" ", file=file, end="")
+
+
+def dfs(
+    node,
+    file,
+    depth=0,
+):
+    if node.text is not None:
+        output_indent(depth, file)
+        print(f"<{node.tag}>", file=file, end="")
+        print(f" {node.text} ", file=file, end="")
+        print(f"</{node.tag}>", file=file)
+        return
+
+    output_indent(depth, file)
+    print(f"<{node.tag}>", file=file)
+
+    for ch in node:
+        dfs(ch, file, depth + 1)
+
+    output_indent(depth, file)
+    print(f"</{node.tag}>", file=file)
 
 
 class CompilationEngine:
@@ -22,9 +48,16 @@ class CompilationEngine:
 
     def output(self):
         basename = os.path.splitext(os.path.basename(os.path.abspath(self.filepath)))[0]
-        document = md.parseString(ET.tostring(self.root))
+        # document = md.parseString(ET.tostring(self.root, short_empty_elements=False))
+        # with open(f"{basename}.xml", mode="w") as f:
+        #     document.writexml(
+        #         f,
+        #         newl="\n",
+        #         indent="",
+        #         addindent=" ",
+        #     )
         with open(f"{basename}.xml", mode="w") as f:
-            document.writexml(f, newl="\n", indent="", addindent="    ")
+            dfs(self.root, f)
 
     def currentToken(self):
         assert self.pos < len(self.tokens), "error : out of range"
