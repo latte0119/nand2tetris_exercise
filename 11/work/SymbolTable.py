@@ -5,7 +5,7 @@ from enum import Enum
 class ScopeKind(Enum):
     STATIC = 0
     FIELD = 1
-    ARGUMENT = 2
+    ARG = 2
     VAR = 3
 
 
@@ -19,9 +19,12 @@ class SymbolTable:
     def __init__(self):
         self.classScope = dict()
         self.subroutineScope = dict()
+        self.var_count = dict()
 
     def startSubroutine(self):
         self.subroutineScope = dict()
+        self.var_count[ScopeKind.ARG] = 0
+        self.var_count[ScopeKind.VAR] = 0
 
     def define(self, identifier, typename, scopekind):
         if scopekind in {ScopeKind.STATIC, ScopeKind.FIELD}:
@@ -34,6 +37,7 @@ class SymbolTable:
         scope[identifier] = SymbolInfo(
             typename=typename, scopekind=scopekind, index=tmp
         )
+        self.var_count[scopekind] += 1
 
     def getSymbolInfo(self, name):
         if name in self.subroutineScope:
@@ -52,3 +56,6 @@ class SymbolTable:
     def indexOf(self, name):
         tmp = self.getSymbolInfo(name)
         return tmp.index
+
+    def varCount(self, scopekind):
+        return self.var_count[scopekind]
