@@ -57,14 +57,14 @@ class JackCompilar:
             ch = chs[i]
             self.symbol_table.define(ch.text, typename, scopekind)
 
-    def generateSubrotineDec(self, node):
+    def generateSubroutineDec(self, node):
         self.symbol_table.startSubroutine()
         chs = childList(node)
         subroutine_kind = chs[0].text
         subroutine_name = chs[2].text
 
-        parameter_list_node = chs[5]
-        subroutine_body_node = chs[7]
+        parameter_list_node = chs[4]
+        subroutine_body_node = chs[6]
         if subroutine_kind == "method":
             self.symbol_table.define("", "", ScopeKind.VAR)
 
@@ -102,16 +102,16 @@ class JackCompilar:
             self.generateStatement(ch)
 
     def generateStatement(self, node):
-        if self.tag == "letStatement":
+        if node.tag == "letStatement":
             self.generateLetStatement(node)
 
-        elif self.tag == "ifStatement":
+        elif node.tag == "ifStatement":
             self.generateIfStatement(node)
 
-        elif self.tag == "whileStatement":
+        elif node.tag == "whileStatement":
             self.generateWhileStatement(node)
 
-        elif self.tag == "doStatement":
+        elif node.tag == "doStatement":
             self.generateDoStatement(node)
 
         else:
@@ -161,16 +161,156 @@ class JackCompilar:
         self.vmwriter.writeLabel(L2)
 
     def generateWhileStatement(self, node):
-        pass
+        chs = childList(node)
+        L1 = generate_random_label()
+        L2 = generate_random_label()
+
+        self.vmwriter.writeLabel(L1)
+        self.generateExpression(chs[2])
+        self.vmwriter.writeArithmetic(ArithmeticCommandType.NOT)
+        self.vmwriter.writeIF(L2)
+        self.generateStatements(chs[5])
+        self.vmwriter.writeGoto(L1)
+        self.vmwriter.writeLabel(L2)
 
     def generateDoStatement(self, node):
-        pass
+        sc = childList(node)[1:-1]
+
+        self.generateSubroutineCall(sc)
+
+        L = generate_random_label()
+        self.vmwriter.writeIF(L)
+        self.vmwriter.writeLabel(L)
 
     def generateReturnStatement(self, node):
-        pass
+        chs = childList(node)
+        if len(chs) == 2:
+            self.vmwriter.writePush(SegmentType.CONST, 0)
+        else:
+            self.generateExpression(chs[1])
+
+        self.vmwriter.writeReturn()
+
+    def generateTerm(self, node):
+        chs = childList(node)
+        if chs[0].tag == "integerConstant":
+            self.vmwriter.writePush(SegmentType.CONST, int(chs[0].text))
+            return
+
+        if chs[0].tag == "stringConstant":
+            pass
+            return
+
+        if chs[0].tag == "keywordConstant":
+            if node.text == "true":
+                self.vmwriter.writePush(SegmentType.CONST, 0)
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.NOT)
+            elif node.text in {"false", "null"}:
+                self.vmwriter.writePush(SegmentType.CONST, 0)
+            else:
+                self.vmwriter.writePush(SegmentType.POINTER, 0)
+            return
+
+        if chs[0].text == "(":
+            self.generateExpression(chs[1])
+            return
+
+        if chs[0].text in {"-", "~"}:
+            self.generateTerm(chs[1])
+            if chs[0].text == "-":
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.NEG)
+            if chs[0].text == "~":
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.NOT)
+            return
+
+        if len(chs) == 1 or chs[-1].text == "]":
+            var_name = chs[0].text
+            scopekind = self.symbol_table.kindOf(var_name)
+            index = self.symbol_table.indexOf(var_name)
+
+            if scopekind == ScopeKind.STATIC:
+                segment = SegmentType.STATIC
+            elif scopekind == ScopeKind.FIELD:
+                segment = SegmentType.THIS
+            elif scopekind == ScopeKind.ARG:
+                segment = SegmentType.ARG
+            else:
+                segment = SegmentType.LOCAL
+
+            self.vmwriter.writePush(segment, index)
+            if chs[-1].text == "]":
+                self.generateExpression(chs[2])
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.ADD)
+                self.vmwriter.writePop(SegmentType.POINTER, 1)
+                self.vmwriter.writePush(SegmentType.THAT, 0)
+            return
+
+        self.generateSubroutineCall(chs)
+
+    def generateSubroutineCall(self, sc):
+        subroutine_name = sc[-4].text
+        nargs = len(childList(sc[-2]))
+
+        if len(sc) == 4:
+            self.vmwriter.writePush(SegmentType.POINTER, 0)
+            nargs += 1
+            class_name = self.class_name
+
+        elif self.symbol_table.isDefined(sc[0].text):
+            var_name = sc[0].text
+            class_name = self.symbol_table.typef(var_name)
+
+            scopekind = self.symbol_table.kindOf(var_name)
+            index = self.symbol_table.indexOf(var_name)
+
+            if scopekind == ScopeKind.STATIC:
+                segment = SegmentType.STATIC
+            elif scopekind == ScopeKind.FIELD:
+                segment = SegmentType.THIS
+            elif scopekind == ScopeKind.ARG:
+                segment = SegmentType.ARG
+            else:
+                segment = SegmentType.LOCAL
+
+            self.vmwriter.writePush(segment, index)
+            nargs += 1
+
+        else:
+            class_name = sc[0].text
+
+        self.generateExpressionList(sc[-2])
+        self.vmwriter.writeCall(f"{class_name}.{subroutine_name}", nargs)
 
     def generateExpression(self, node):
-        pass
+        chs = childList(node)
+        self.generateTerm(chs[0])
+        for i in range(1, len(chs), 2):
+            self.generateTerm(chs[i + 1])
+            op = chs[i].text
+
+            if op == "+":
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.ADD)
+            elif op == "-":
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.SUB)
+            elif op == "&":
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.AND)
+            elif op == "|":
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.OR)
+            elif op == "<":
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.LT)
+            elif op == ">":
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.GT)
+            elif op == "=":
+                self.vmwriter.writeArithmetic(ArithmeticCommandType.EQ)
+            elif op == "*":
+                self.vmwriter.writeCall("Math.multiply", 2)
+            elif op == "/":
+                self.vmwriter.writeCall("Math.divide", 2)
+
+    def generateExpressionList(self, node):
+        chs = childList(node)
+        for i in range(0, len(chs), 2):
+            self.generateExpression(chs[i])
 
     def generateVarDec(self, node):
         chs = childList(node)

@@ -1,1 +1,62 @@
-label latte
+function Main.main 4
+call Keyboard.readInt 1
+pop local 1
+push local 1
+call Array.new 1
+pop local 0
+push const 0
+pop local 2
+label opowKBIaOPDCBibAUyrJ
+push local 2
+push local 1
+not
+if-goto GYAeytshPXijBrisuDSH
+call Keyboard.readInt 1
+push local 0
+push local 2
+add
+pop pointer 1
+pop that 0
+push local 2
+push const 1
+add
+pop local 2
+goto opowKBIaOPDCBibAUyrJ
+label GYAeytshPXijBrisuDSH
+push const 0
+pop local 2
+push const 0
+pop local 3
+label whPSpwnariPiYpmPUjYz
+push local 2
+push local 1
+not
+if-goto tBSHmqiRFPZflyudRvQz
+push local 3
+push local 0
+push local 2
+add
+pop pointer 1
+push that 0
+add
+pop local 3
+push local 2
+push const 1
+add
+pop local 2
+goto whPSpwnariPiYpmPUjYz
+label tBSHmqiRFPZflyudRvQz
+call Output.printString 1
+if-goto mkEgRiixdsAowgmdzfQG
+label mkEgRiixdsAowgmdzfQG
+push local 3
+push local 1
+call Math.divide 2
+call Output.printInt 1
+if-goto aaaLgwdxtANrGFDUcrag
+label aaaLgwdxtANrGFDUcrag
+call Output.println 0
+if-goto dNylGkYqyOMzCHliVPJz
+label dNylGkYqyOMzCHliVPJz
+push const 0
+return

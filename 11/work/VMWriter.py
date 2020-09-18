@@ -47,7 +47,7 @@ class SegmentType(Enum):
 
     def __str__(self):
         if self == SegmentType.CONST:
-            return "const"
+            return "constant"
         if self == SegmentType.ARG:
             return "argument"
 
@@ -68,7 +68,7 @@ class SegmentType(Enum):
 
 class VMWriter:
     def __init__(self, filepath):
-        name = os.path.splitext(os.path.basename(os.path.abspath(filepath)))[0]
+        name = os.path.splitext(os.path.abspath(filepath))[0]
         self.file = open(f"{name}.vm", mode="w")
 
     def writePush(self, segment, index):
