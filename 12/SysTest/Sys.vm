@@ -1,0 +1,73 @@
+function Sys.init 0
+call Memory.init 0
+if-goto LygHRXqNzGQuClkSQdpd
+label LygHRXqNzGQuClkSQdpd
+call Math.init 0
+if-goto SDHPtNwQlMllDiQSTysp
+label SDHPtNwQlMllDiQSTysp
+call Output.init 0
+if-goto VidLRvYMnkkfpBRXTNjS
+label VidLRvYMnkkfpBRXTNjS
+call Screen.init 0
+if-goto IjsoSmTLDGDwTsWrMEGG
+label IjsoSmTLDGDwTsWrMEGG
+call Keyboard.init 0
+if-goto WyTCGRWZOYtPDLHNHHAn
+label WyTCGRWZOYtPDLHNHHAn
+call Main.main 0
+if-goto iuciGSlmpsAnOplYtePC
+label iuciGSlmpsAnOplYtePC
+call Sys.halt 0
+if-goto SmcxAaRswsAwiFCRhtJf
+label SmcxAaRswsAwiFCRhtJf
+push constant 0
+return
+function Sys.halt 0
+label hlbsnuFKqADYbXeMmSIm
+push constant 0
+not
+not
+if-goto yIeVpWxbbTagyqlVKeSi
+goto hlbsnuFKqADYbXeMmSIm
+label yIeVpWxbbTagyqlVKeSi
+push constant 0
+return
+function Sys.wait 2
+label MkQXCkrEMsmPOhnNsShe
+push local 0
+push argument 0
+lt
+not
+if-goto axbeIkzGGfbTiffLYgWq
+push constant 0
+pop local 1
+label wzYfUxbLmCHIMBJQuuVq
+push local 1
+push constant 350
+lt
+not
+if-goto jrXuCFbkTiJjTmrNitrt
+push local 1
+push constant 1
+add
+pop local 1
+goto wzYfUxbLmCHIMBJQuuVq
+label jrXuCFbkTiJjTmrNitrt
+push local 0
+push constant 1
+add
+pop local 0
+goto MkQXCkrEMsmPOhnNsShe
+label axbeIkzGGfbTiffLYgWq
+push constant 0
+return
+function Sys.error 0
+push argument 0
+call Output.printString 1
+if-goto JNigPDqmEDlbwMuhwTZR
+label JNigPDqmEDlbwMuhwTZR
+call Sys.halt 0
+if-goto mbFMRWmQbCrDjtKXRevx
+label mbFMRWmQbCrDjtKXRevx
+push constant 0
+return
