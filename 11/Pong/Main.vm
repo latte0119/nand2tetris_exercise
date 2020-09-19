@@ -1,0 +1,16 @@
+function Main.main 1
+call PongGame.newInstance 0
+if-goto WEUTSqCsHUvlqIQvWQHs
+label WEUTSqCsHUvlqIQvWQHs
+call PongGame.getInstance 0
+pop local 0
+push local 0
+call PongGame.run 1
+if-goto cNdPLFHJeQWKHxCoAIqv
+label cNdPLFHJeQWKHxCoAIqv
+push local 0
+call PongGame.dispose 1
+if-goto ggzcRqDMOkCCpZrrtMLK
+label ggzcRqDMOkCCpZrrtMLK
+push constant 0
+return

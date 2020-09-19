@@ -1,0 +1,343 @@
+function PongGame.new 0
+push constant 7
+call Memory.alloc 1
+pop pointer 0
+call Screen.clearScreen 0
+if-goto LzSwUgwMplOhgkjSicYx
+label LzSwUgwMplOhgkjSicYx
+push constant 50
+pop this 6
+push constant 230
+push constant 229
+push this 6
+push constant 7
+call Bat.new 4
+pop this 0
+push constant 253
+push constant 222
+push constant 0
+push constant 511
+push constant 0
+push constant 229
+call Ball.new 6
+pop this 1
+push this 1
+push constant 400
+push constant 0
+call Ball.setDestination 3
+if-goto cExOvzqTCllJXRgTTLQl
+label cExOvzqTCllJXRgTTLQl
+push constant 0
+push constant 238
+push constant 511
+push constant 240
+call Screen.drawRectangle 4
+if-goto oKewqPtGynpaVhlQtRyW
+label oKewqPtGynpaVhlQtRyW
+push constant 22
+push constant 0
+call Output.moveCursor 2
+if-goto cEfERphZFKpIirgschxx
+label cEfERphZFKpIirgschxx
+push constant 8
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 48
+call String.appendChar 2
+call Output.printString 1
+if-goto IUuMEHxKOUWZoQJVxsBO
+label IUuMEHxKOUWZoQJVxsBO
+push constant 0
+pop this 3
+push constant 0
+pop this 4
+push constant 0
+pop this 2
+push constant 0
+pop this 5
+push pointer 0
+return
+function PongGame.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Bat.dispose 1
+if-goto NDEpzIZrKGqjkKascjXl
+label NDEpzIZrKGqjkKascjXl
+push this 1
+call Ball.dispose 1
+if-goto MhJBhFPmDKKUNgVYEpNR
+label MhJBhFPmDKKUNgVYEpNR
+push pointer 0
+call Memory.deAlloc 1
+if-goto rDVtjXvZOmQVMzIqtBBb
+label rDVtjXvZOmQVMzIqtBBb
+push constant 0
+return
+function PongGame.newInstance 0
+call PongGame.new 0
+pop static 0
+push constant 0
+return
+function PongGame.getInstance 0
+push static 0
+return
+function PongGame.run 1
+push argument 0
+pop pointer 0
+label TZQvfyxarpIAirjIcmDO
+push this 3
+not
+not
+if-goto MZIWhLXKahUnRsxbHdwL
+label ToRqQLPjGPQKPnsqAJeD
+push local 0
+push constant 0
+eq
+push this 3
+not
+and
+not
+if-goto WIhFUeAxEFQCBnoQQEkC
+call Keyboard.keyPressed 0
+pop local 0
+push this 0
+call Bat.move 1
+if-goto iRdXrDHVFiawVwxdJUXE
+label iRdXrDHVFiawVwxdJUXE
+push pointer 0
+call PongGame.moveBall 1
+if-goto KqsNIJQbEjgyOnhTJlMq
+label KqsNIJQbEjgyOnhTJlMq
+push constant 50
+call Sys.wait 1
+if-goto VlHLxlIDqhLWbzbtEDps
+label VlHLxlIDqhLWbzbtEDps
+goto ToRqQLPjGPQKPnsqAJeD
+label WIhFUeAxEFQCBnoQQEkC
+push local 0
+push constant 130
+eq
+not
+if-goto GkWLECePEcGKfuBgtPng
+push this 0
+push constant 1
+call Bat.setDirection 2
+if-goto YOukfbGuiYSZhzelyBjj
+label YOukfbGuiYSZhzelyBjj
+goto EgUJHeVlLsacmFksGKkw
+label GkWLECePEcGKfuBgtPng
+push local 0
+push constant 132
+eq
+not
+if-goto QxoqvCFmqsaGIvxryKtz
+push this 0
+push constant 2
+call Bat.setDirection 2
+if-goto KSTbDllKsedPyVTimBbd
+label KSTbDllKsedPyVTimBbd
+goto mleylypktSoJdcrLCcUW
+label QxoqvCFmqsaGIvxryKtz
+push local 0
+push constant 140
+eq
+not
+if-goto rfmbPsgfoBxXBYSmieIn
+push constant 0
+not
+pop this 3
+goto ywPMCrmPaDrziAaTXgwV
+label rfmbPsgfoBxXBYSmieIn
+label ywPMCrmPaDrziAaTXgwV
+label mleylypktSoJdcrLCcUW
+label EgUJHeVlLsacmFksGKkw
+label uWbeHXSBJssnZPHQcHaw
+push local 0
+push constant 0
+eq
+not
+push this 3
+not
+and
+not
+if-goto KEOxFWThPcMvWImSGIGO
+call Keyboard.keyPressed 0
+pop local 0
+push this 0
+call Bat.move 1
+if-goto URSbBXEDvpUAAJkxNPLB
+label URSbBXEDvpUAAJkxNPLB
+push pointer 0
+call PongGame.moveBall 1
+if-goto wamAlQrANnvlkaqDblDg
+label wamAlQrANnvlkaqDblDg
+push constant 50
+call Sys.wait 1
+if-goto SFAkaSKczTViZIIEppIQ
+label SFAkaSKczTViZIIEppIQ
+goto uWbeHXSBJssnZPHQcHaw
+label KEOxFWThPcMvWImSGIGO
+goto TZQvfyxarpIAirjIcmDO
+label MZIWhLXKahUnRsxbHdwL
+push this 3
+not
+if-goto MXUfrhSEmzbrCtBcJNdL
+push constant 10
+push constant 27
+call Output.moveCursor 2
+if-goto bVUeQKVyAUeuryQzCSem
+label bVUeQKVyAUeuryQzCSem
+push constant 9
+call String.new 1
+push constant 71
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+call Output.printString 1
+if-goto gyohSILlvlAcwIrpwQSX
+label gyohSILlvlAcwIrpwQSX
+goto COFTSuCccMnEHrhPOsRt
+label MXUfrhSEmzbrCtBcJNdL
+label COFTSuCccMnEHrhPOsRt
+push constant 0
+return
+function PongGame.moveBall 5
+push argument 0
+pop pointer 0
+push this 1
+call Ball.move 1
+pop this 2
+push this 2
+push constant 0
+gt
+push this 2
+push this 5
+eq
+not
+and
+not
+if-goto AOUiLyxrRGimLZJkQFBb
+push this 2
+pop this 5
+push constant 0
+pop local 0
+push this 0
+call Bat.getLeft 1
+pop local 1
+push this 0
+call Bat.getRight 1
+pop local 2
+push this 1
+call Ball.getLeft 1
+pop local 3
+push this 1
+call Ball.getRight 1
+pop local 4
+push this 2
+push constant 4
+eq
+not
+if-goto sCAGsNseUqxggLNtnFEF
+push local 1
+push local 4
+gt
+push local 2
+push local 3
+lt
+or
+pop this 3
+push this 3
+not
+not
+if-goto FpwCOYZGNsEIagBtpjuf
+push local 4
+push local 1
+push constant 10
+add
+lt
+not
+if-goto MBDXVbzptQhWjMnQBQgU
+push constant 1
+neg
+pop local 0
+goto QEWIrwHlvyhoxlVaBFfo
+label MBDXVbzptQhWjMnQBQgU
+push local 3
+push local 2
+push constant 10
+sub
+gt
+not
+if-goto UBjZKjUSqXbFfyIokQwK
+push constant 1
+pop local 0
+goto XwDjsiTuAGHFAiuRscKE
+label UBjZKjUSqXbFfyIokQwK
+label XwDjsiTuAGHFAiuRscKE
+label QEWIrwHlvyhoxlVaBFfo
+push this 6
+push constant 2
+sub
+pop this 6
+push this 0
+push this 6
+call Bat.setWidth 2
+if-goto SBSKbeqOZrPAwciIQdtQ
+label SBSKbeqOZrPAwciIQdtQ
+push this 4
+push constant 1
+add
+pop this 4
+push constant 22
+push constant 7
+call Output.moveCursor 2
+if-goto edpXjEmmgnDOzTxpRKFX
+label edpXjEmmgnDOzTxpRKFX
+push this 4
+call Output.printInt 1
+if-goto yMcvupfymlHiicXmOiJU
+label yMcvupfymlHiicXmOiJU
+goto epBcwHMYOUHWMhbRfofq
+label FpwCOYZGNsEIagBtpjuf
+label epBcwHMYOUHWMhbRfofq
+goto hIaWnIEfcsKYuuGRfcUd
+label sCAGsNseUqxggLNtnFEF
+label hIaWnIEfcsKYuuGRfcUd
+push this 1
+push local 0
+call Ball.bounce 2
+if-goto gUQAIWqIZPstCPMqWfOL
+label gUQAIWqIZPstCPMqWfOL
+goto VBeoHzuKXQAcNySxuLWC
+label AOUiLyxrRGimLZJkQFBb
+label VBeoHzuKXQAcNySxuLWC
+push constant 0
+return

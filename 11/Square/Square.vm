@@ -1,0 +1,336 @@
+function Square.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 2
+pop this 2
+push pointer 0
+call Square.draw 1
+if-goto XOrulOsgJTPAeNZpaSQh
+label XOrulOsgJTPAeNZpaSQh
+push pointer 0
+return
+function Square.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+if-goto iYnjcdDqRNuwSHGfVdqR
+label iYnjcdDqRNuwSHGfVdqR
+push constant 0
+return
+function Square.draw 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+if-goto PqxLSByIuapaNZlkZFXi
+label PqxLSByIuapaNZlkZFXi
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+if-goto VPbUMrxkEUWqEowxDkZk
+label VPbUMrxkEUWqEowxDkZk
+push constant 0
+return
+function Square.erase 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+if-goto VNnLirdBDKZUqcLJCLrZ
+label VNnLirdBDKZUqcLJCLrZ
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+if-goto OInFAMEYpIAoatUMqpyD
+label OInFAMEYpIAoatUMqpyD
+push constant 0
+return
+function Square.incSize 0
+push argument 0
+pop pointer 0
+push this 1
+push this 2
+add
+push constant 254
+lt
+push this 0
+push this 2
+add
+push constant 510
+lt
+and
+not
+if-goto gHRfbTXYfeYJmiVCYOBb
+push pointer 0
+call Square.erase 1
+if-goto lAdeMYFKUADWgUtzKBtF
+label lAdeMYFKUADWgUtzKBtF
+push this 2
+push constant 2
+add
+pop this 2
+push pointer 0
+call Square.draw 1
+if-goto CGQhSVFFyepvAbTGgtgx
+label CGQhSVFFyepvAbTGgtgx
+goto bEEtpgdNEPnPwiArsDJc
+label gHRfbTXYfeYJmiVCYOBb
+label bEEtpgdNEPnPwiArsDJc
+push constant 0
+return
+function Square.decSize 0
+push argument 0
+pop pointer 0
+push this 2
+push constant 2
+gt
+not
+if-goto RPUuQIoLKqaSyAnLFsNA
+push pointer 0
+call Square.erase 1
+if-goto jmzonqnJjVvadEcirmiF
+label jmzonqnJjVvadEcirmiF
+push this 2
+push constant 2
+sub
+pop this 2
+push pointer 0
+call Square.draw 1
+if-goto UvjkNuCYUclToCPlHpJR
+label UvjkNuCYUclToCPlHpJR
+goto ppgwGHrWyZJvMRutHlEq
+label RPUuQIoLKqaSyAnLFsNA
+label ppgwGHrWyZJvMRutHlEq
+push constant 0
+return
+function Square.moveUp 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+gt
+not
+if-goto JyQWiltqpRumdpSDiecO
+push constant 0
+call Screen.setColor 1
+if-goto WGloNmktotopjdjjFEli
+label WGloNmktotopjdjjFEli
+push this 0
+push this 1
+push this 2
+add
+push constant 1
+sub
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+if-goto rlFDungVUxrbBiULfUOh
+label rlFDungVUxrbBiULfUOh
+push this 1
+push constant 2
+sub
+pop this 1
+push constant 0
+not
+call Screen.setColor 1
+if-goto yyexhGmWZjhxldqeCNOQ
+label yyexhGmWZjhxldqeCNOQ
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push constant 1
+add
+call Screen.drawRectangle 4
+if-goto CmyUMIlPseqTsmCkXAdq
+label CmyUMIlPseqTsmCkXAdq
+goto MmptOISYuNdmYhiceRGy
+label JyQWiltqpRumdpSDiecO
+label MmptOISYuNdmYhiceRGy
+push constant 0
+return
+function Square.moveDown 0
+push argument 0
+pop pointer 0
+push this 1
+push this 2
+add
+push constant 254
+lt
+not
+if-goto dDddvRcLQnBXqpqnuvlY
+push constant 0
+call Screen.setColor 1
+if-goto tXyLybKiazOfEeRnsgjb
+label tXyLybKiazOfEeRnsgjb
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push constant 1
+add
+call Screen.drawRectangle 4
+if-goto dIYKAZwltMhDAalbsGYD
+label dIYKAZwltMhDAalbsGYD
+push this 1
+push constant 2
+add
+pop this 1
+push constant 0
+not
+call Screen.setColor 1
+if-goto FOHtkGHhgcmHoZexZlLL
+label FOHtkGHhgcmHoZexZlLL
+push this 0
+push this 1
+push this 2
+add
+push constant 1
+sub
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+if-goto dUKTAzQXbbfZiROVlpZc
+label dUKTAzQXbbfZiROVlpZc
+goto VRYDzyVoRBWhvrHmEVFK
+label dDddvRcLQnBXqpqnuvlY
+label VRYDzyVoRBWhvrHmEVFK
+push constant 0
+return
+function Square.moveLeft 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+gt
+not
+if-goto BbFPjALbegtXrHtPUwKE
+push constant 0
+call Screen.setColor 1
+if-goto uSkRHuDvFjbjXnvdGrDe
+label uSkRHuDvFjbjXnvdGrDe
+push this 0
+push this 2
+add
+push constant 1
+sub
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+if-goto XpsFuYkEeZJnkCVhdxUK
+label XpsFuYkEeZJnkCVhdxUK
+push this 0
+push constant 2
+sub
+pop this 0
+push constant 0
+not
+call Screen.setColor 1
+if-goto aCRwwbgLIRBeUGwEEzwT
+label aCRwwbgLIRBeUGwEEzwT
+push this 0
+push this 1
+push this 0
+push constant 1
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+if-goto YsSlBRfsnruTAumLZHKf
+label YsSlBRfsnruTAumLZHKf
+goto kqrUuLQrtncucfKJDtcc
+label BbFPjALbegtXrHtPUwKE
+label kqrUuLQrtncucfKJDtcc
+push constant 0
+return
+function Square.moveRight 0
+push argument 0
+pop pointer 0
+push this 0
+push this 2
+add
+push constant 510
+lt
+not
+if-goto ZnuVMSTyDcyfdxfsmmIJ
+push constant 0
+call Screen.setColor 1
+if-goto iTTwBHJyBZBjooktRtig
+label iTTwBHJyBZBjooktRtig
+push this 0
+push this 1
+push this 0
+push constant 1
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+if-goto FOIgAuFVTRtzKSLGzmSX
+label FOIgAuFVTRtzKSLGzmSX
+push this 0
+push constant 2
+add
+pop this 0
+push constant 0
+not
+call Screen.setColor 1
+if-goto UNkYIHYNVaZSmpIACwOf
+label UNkYIHYNVaZSmpIACwOf
+push this 0
+push this 2
+add
+push constant 1
+sub
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+if-goto GhasghxFgEvZxbwUXWQo
+label GhasghxFgEvZxbwUXWQo
+goto dStFwKPBTOIdTLnDdYqE
+label ZnuVMSTyDcyfdxfsmmIJ
+label dStFwKPBTOIdTLnDdYqE
+push constant 0
+return

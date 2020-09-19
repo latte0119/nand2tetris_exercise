@@ -66,13 +66,13 @@ class JackCompilar:
         parameter_list_node = chs[4]
         subroutine_body_node = chs[6]
         if subroutine_kind == "method":
-            self.symbol_table.define("", "", ScopeKind.VAR)
+            self.symbol_table.define("", "", ScopeKind.ARG)
 
         chs = childList(parameter_list_node)
         for i in range(0, len(chs), 3):
             type_node = chs[i]
             var_name_node = chs[i + 1]
-            self.symbol_table.define(type_node.text, var_name_node.text, ScopeKind.ARG)
+            self.symbol_table.define(var_name_node.text, type_node.text, ScopeKind.ARG)
 
         chs = childList(subroutine_body_node)
 
@@ -175,7 +175,6 @@ class JackCompilar:
 
     def generateDoStatement(self, node):
         sc = childList(node)[1:-1]
-
         self.generateSubroutineCall(sc)
 
         L = generate_random_label()
@@ -193,19 +192,25 @@ class JackCompilar:
 
     def generateTerm(self, node):
         chs = childList(node)
+
         if chs[0].tag == "integerConstant":
             self.vmwriter.writePush(SegmentType.CONST, int(chs[0].text))
             return
 
         if chs[0].tag == "stringConstant":
-            pass
+            length = len(chs[0].text)
+            self.vmwriter.writePush(SegmentType.CONST, length)
+            self.vmwriter.writeCall("String.new", 1)
+            for c in chs[0].text:
+                self.vmwriter.writePush(SegmentType.CONST, ord(c))
+                self.vmwriter.writeCall("String.appendChar", 2)
             return
 
-        if chs[0].tag == "keywordConstant":
-            if node.text == "true":
+        if chs[0].tag == "keyword":
+            if chs[0].text == "true":
                 self.vmwriter.writePush(SegmentType.CONST, 0)
                 self.vmwriter.writeArithmetic(ArithmeticCommandType.NOT)
-            elif node.text in {"false", "null"}:
+            elif chs[0].text in {"false", "null"}:
                 self.vmwriter.writePush(SegmentType.CONST, 0)
             else:
                 self.vmwriter.writePush(SegmentType.POINTER, 0)
@@ -227,7 +232,6 @@ class JackCompilar:
             var_name = chs[0].text
             scopekind = self.symbol_table.kindOf(var_name)
             index = self.symbol_table.indexOf(var_name)
-
             if scopekind == ScopeKind.STATIC:
                 segment = SegmentType.STATIC
             elif scopekind == ScopeKind.FIELD:
@@ -249,8 +253,7 @@ class JackCompilar:
 
     def generateSubroutineCall(self, sc):
         subroutine_name = sc[-4].text
-        nargs = len(childList(sc[-2]))
-
+        nargs = (len(childList(sc[-2])) + 1) // 2
         if len(sc) == 4:
             self.vmwriter.writePush(SegmentType.POINTER, 0)
             nargs += 1
@@ -258,7 +261,7 @@ class JackCompilar:
 
         elif self.symbol_table.isDefined(sc[0].text):
             var_name = sc[0].text
-            class_name = self.symbol_table.typef(var_name)
+            class_name = self.symbol_table.typeOf(var_name)
 
             scopekind = self.symbol_table.kindOf(var_name)
             index = self.symbol_table.indexOf(var_name)
@@ -292,13 +295,13 @@ class JackCompilar:
                 self.vmwriter.writeArithmetic(ArithmeticCommandType.ADD)
             elif op == "-":
                 self.vmwriter.writeArithmetic(ArithmeticCommandType.SUB)
-            elif op == "&":
+            elif op == "&amp;":
                 self.vmwriter.writeArithmetic(ArithmeticCommandType.AND)
             elif op == "|":
                 self.vmwriter.writeArithmetic(ArithmeticCommandType.OR)
-            elif op == "<":
+            elif op == "&lt;":
                 self.vmwriter.writeArithmetic(ArithmeticCommandType.LT)
-            elif op == ">":
+            elif op == "&gt;":
                 self.vmwriter.writeArithmetic(ArithmeticCommandType.GT)
             elif op == "=":
                 self.vmwriter.writeArithmetic(ArithmeticCommandType.EQ)

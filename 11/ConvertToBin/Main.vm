@@ -1,0 +1,107 @@
+function Main.main 1
+push constant 8001
+push constant 16
+push constant 1
+neg
+call Main.fillMemory 5
+if-goto lGnJCIkuAjTQDTrbrGqg
+label lGnJCIkuAjTQDTrbrGqg
+push constant 8000
+call Memory.peek 1
+pop local 0
+push local 0
+call Main.convert 1
+if-goto pSYXgYmqjNPprYvBlbNy
+label pSYXgYmqjNPprYvBlbNy
+push constant 0
+return
+function Main.convert 3
+push pointer 0
+pop local 3
+label djxbQzcgFPfxSlHkWUgN
+push local 3
+not
+if-goto TRCgTRccGBuZebJGYbuw
+push local 2
+push constant 1
+add
+pop local 2
+push local 1
+call Main.nextMask 1
+pop local 1
+push local 2
+push constant 16
+not
+not
+if-goto WamfbcHFecnpzkBlgISI
+push argument 0
+push local 1
+push constant 0
+eq
+not
+not
+if-goto OGFXsmNgLdhZjkvZKUHp
+push constant 8000
+push local 2
+add
+push constant 1
+call Memory.poke 3
+if-goto LzMnuuHukfZkDJrxWoFX
+label LzMnuuHukfZkDJrxWoFX
+goto foSgPMJJRoJxLhIBtaKh
+label OGFXsmNgLdhZjkvZKUHp
+push constant 8000
+push local 2
+add
+push constant 0
+call Memory.poke 3
+if-goto kjWdUTGrtDprXEEJTSnV
+label kjWdUTGrtDprXEEJTSnV
+label foSgPMJJRoJxLhIBtaKh
+goto HafpBRZOyzGZGkHalFgb
+label WamfbcHFecnpzkBlgISI
+push pointer 0
+pop local 3
+label HafpBRZOyzGZGkHalFgb
+goto djxbQzcgFPfxSlHkWUgN
+label TRCgTRccGBuZebJGYbuw
+push constant 0
+return
+function Main.nextMask 0
+push argument 0
+push constant 0
+eq
+not
+if-goto spXIbNKMNwadaVQNKCEU
+push constant 1
+return
+goto zvujMpNVqsqrLpvOSXpK
+label spXIbNKMNwadaVQNKCEU
+push argument 0
+push constant 2
+call Math.multiply 2
+return
+label zvujMpNVqsqrLpvOSXpK
+function Main.fillMemory 0
+label CQWSqJAggUduuwBmfBAa
+push argument 1
+push constant 0
+not
+if-goto nQsCqpUEEuFFWGRDapcg
+push argument 0
+push argument 2
+call Memory.poke 3
+if-goto MSyFZCAsWJpGvrUHqQhF
+label MSyFZCAsWJpGvrUHqQhF
+push argument 1
+push constant 1
+sub
+pop argument 1
+push argument 0
+push constant 1
+add
+pop argument 0
+goto CQWSqJAggUduuwBmfBAa
+label nQsCqpUEEuFFWGRDapcg
+push constant 0
+return

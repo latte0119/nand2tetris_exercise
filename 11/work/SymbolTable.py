@@ -19,7 +19,7 @@ class SymbolTable:
     def __init__(self):
         self.classScope = dict()
         self.subroutineScope = dict()
-        self.var_count = dict()
+        self.var_count = {ScopeKind.STATIC: 0, ScopeKind.FIELD: 0}
 
     def startSubroutine(self):
         self.subroutineScope = dict()
@@ -33,7 +33,7 @@ class SymbolTable:
             scope = self.subroutineScope
 
         assert identifier not in scope
-        tmp = len(scope)
+        tmp = self.var_count[scopekind]
         scope[identifier] = SymbolInfo(
             typename=typename, scopekind=scopekind, index=tmp
         )
