@@ -38,7 +38,7 @@ class CompilationEngine:
         node = ET.SubElement(node, tmp[0])
         node.text = tmp[1]
 
-        # print(tmp[1])
+        print(tmp[1])
         self.advance()
 
     def readType(self, node):

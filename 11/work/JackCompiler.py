@@ -122,6 +122,7 @@ class JackCompilar:
         self.generateExpression(chs[-2])
 
         varname = chs[1].text
+        print(varname)
         scopekind = self.symbol_table.kindOf(varname)
         index = self.symbol_table.indexOf(varname)
 
