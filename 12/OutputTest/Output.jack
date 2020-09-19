@@ -222,6 +222,17 @@ class Output {
         var int address;
         var int tmp;
         var int nci,ncj;
+
+        if(c=String.newLine()){
+            do Output.println();
+            return;
+        }
+        if(c=String.backSpace()){
+            do Output.backSpace();
+            return;
+        }
+
+
         let map=Output.getMap(c);
 
         let y=ci*11;
