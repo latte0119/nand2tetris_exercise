@@ -64,7 +64,7 @@ def tokenize(code):
     token_patterns = [
         ("symbol", r"[{}()[\].,;+\-*/&|<>=~]"),
         ("integerConstant", r"[0-9]+"),
-        ("stringConstant", r'(?<=").*?(?=")'),
+        ("stringConstant", r'".*?"'),
         ("identifier", r"[a-zA-Z_][a-zA-Z_0-9]*"),
     ]
 
@@ -107,7 +107,7 @@ def tokenize(code):
             yield Token(TokenType.INTEGER_CONSTANT, int(value))
 
         elif kind == "stringConstant":
-            yield Token(TokenType.STRING_CONSTANT, value)
+            yield Token(TokenType.STRING_CONSTANT, value[1:-1])
 
         elif value in keywords:  # identifer
             yield Token(TokenType.KEYWORD, value)
