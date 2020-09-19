@@ -5,44 +5,44 @@ pop local 0
 push local 0
 call String.doubleQuote 0
 call String.appendChar 2
-if-goto EyjyynuTydzYSWdiwliC
-label EyjyynuTydzYSWdiwliC
+if-goto fSGicxslMTkfLrCYOjWw
+label fSGicxslMTkfLrCYOjWw
 push constant 0
 push constant 63
 call Output.moveCursor 2
-if-goto AGatXovcppGxLDPOvXJc
-label AGatXovcppGxLDPOvXJc
+if-goto FqcRfqQoYbbLiVVwULNs
+label FqcRfqQoYbbLiVVwULNs
 push constant 66
 call Output.printChar 1
-if-goto UZcupmZGFLntgisGfzDD
-label UZcupmZGFLntgisGfzDD
+if-goto UzMJNPTGQhAWbZvVjEBU
+label UzMJNPTGQhAWbZvVjEBU
 push constant 22
 push constant 0
 call Output.moveCursor 2
-if-goto qGvmINKQFDgbIBprOUtI
-label qGvmINKQFDgbIBprOUtI
+if-goto tHyCFhnxWrJyKTrCeHRY
+label tHyCFhnxWrJyKTrCeHRY
 push constant 67
 call Output.printChar 1
-if-goto yeMzMNoBgXKrjQwnzWqh
-label yeMzMNoBgXKrjQwnzWqh
+if-goto bapWaxwAmdozlAoPSzPn
+label bapWaxwAmdozlAoPSzPn
 push constant 22
 push constant 63
 call Output.moveCursor 2
-if-goto IGomRQxLIvZpFTmrmVjP
-label IGomRQxLIvZpFTmrmVjP
+if-goto blhVeEnNuAlNUVuVKeBn
+label blhVeEnNuAlNUVuVKeBn
 push constant 68
 call Output.printChar 1
-if-goto oZavdZtzWcbnVwEWUvig
-label oZavdZtzWcbnVwEWUvig
+if-goto MnqTxCzKoOJLLFhDQyhU
+label MnqTxCzKoOJLLFhDQyhU
 push constant 65
 call Output.printChar 1
-if-goto tbGJggLgfMSMmSfSLKef
-label tbGJggLgfMSMmSfSLKef
+if-goto SyQnRjmiaDtRIsayvnXL
+label SyQnRjmiaDtRIsayvnXL
 push constant 2
 push constant 0
 call Output.moveCursor 2
-if-goto ttcxKRzlShKXrbLBojWZ
-label ttcxKRzlShKXrbLBojWZ
+if-goto DdaqczyeBUMiwDwTYSTB
+label DdaqczyeBUMiwDwTYSTB
 push constant 10
 call String.new 1
 push constant 48
@@ -66,11 +66,11 @@ call String.appendChar 2
 push constant 57
 call String.appendChar 2
 call Output.printString 1
-if-goto ZtmfDPnVtxidwqcxyqcK
-label ZtmfDPnVtxidwqcxyqcK
+if-goto sqHSgCgKlNvjCDLUVuuw
+label sqHSgCgKlNvjCDLUVuuw
 call Output.println 0
-if-goto KNrGuAAFIHXqtrByFEje
-label KNrGuAAFIHXqtrByFEje
+if-goto kOnKetwAYXWLwaiDRhzE
+label kOnKetwAYXWLwaiDRhzE
 push constant 53
 call String.new 1
 push constant 65
@@ -180,11 +180,11 @@ call String.appendChar 2
 push constant 122
 call String.appendChar 2
 call Output.printString 1
-if-goto vNtYCiUdVeOtlBgBtvgc
-label vNtYCiUdVeOtlBgBtvgc
+if-goto VcbysjIoRMrxsqIJSLaS
+label VcbysjIoRMrxsqIJSLaS
 call Output.println 0
-if-goto gPDxocWRdrrUNXGcrsSA
-label gPDxocWRdrrUNXGcrsSA
+if-goto uCNjHOHsoFTkqkiiYEtF
+label uCNjHOHsoFTkqkiiYEtF
 push constant 31
 call String.new 1
 push constant 33
@@ -250,26 +250,26 @@ call String.appendChar 2
 push constant 126
 call String.appendChar 2
 call Output.printString 1
-if-goto lPJKMJAsfpHrqumDGZVe
-label lPJKMJAsfpHrqumDGZVe
+if-goto qNdwmrinFphbowGCROWF
+label qNdwmrinFphbowGCROWF
 push local 0
 call Output.printString 1
-if-goto WqYdCDeVluxdOxKZvbpg
-label WqYdCDeVluxdOxKZvbpg
+if-goto GxvtDdDVbovypBxlEBZi
+label GxvtDdDVbovypBxlEBZi
 call Output.println 0
-if-goto NjPYACFJjhWVpQOImwOA
-label NjPYACFJjhWVpQOImwOA
+if-goto AizZvOOdGvRGkhywKzBF
+label AizZvOOdGvRGkhywKzBF
 push constant 12345
 neg
 call Output.printInt 1
-if-goto EdOsiLsyCyDQVBOsSfZU
-label EdOsiLsyCyDQVBOsSfZU
+if-goto YtMqtcEhbpmDKDCIdnml
+label YtMqtcEhbpmDKDCIdnml
 call Output.backSpace 0
-if-goto XbqvCfoRQZeDGFUtngAV
-label XbqvCfoRQZeDGFUtngAV
+if-goto kuekIebKpRvNQxXkiCan
+label kuekIebKpRvNQxXkiCan
 push constant 6789
 call Output.printInt 1
-if-goto vfPFxsYHkWZxtmreuJOv
-label vfPFxsYHkWZxtmreuJOv
+if-goto npFCSdGeoOcgaWdfbiqQ
+label npFCSdGeoOcgaWdfbiqQ
 push constant 0
 return
