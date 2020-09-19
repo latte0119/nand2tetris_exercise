@@ -1,0 +1,90 @@
+function Keyboard.init 0
+push constant 0
+return
+function Keyboard.keyPressed 0
+push constant 24576
+call Memory.peek 1
+return
+function Keyboard.readChar 1
+push constant 0
+call Output.printChar 1
+if-goto qjtkSMrZYQSeuftAxMEz
+label qjtkSMrZYQSeuftAxMEz
+label byuJnihkmZcIbpygodKI
+call Keyboard.keyPressed 0
+push constant 0
+eq
+not
+if-goto UezhtsGlpLiekmqhRLez
+goto byuJnihkmZcIbpygodKI
+label UezhtsGlpLiekmqhRLez
+call Keyboard.keyPressed 0
+pop local 0
+label BoZMzjZmLLqXksaHgNXV
+call Keyboard.keyPressed 0
+push constant 0
+gt
+not
+if-goto rMQfenWyAvwywiBvJDwT
+goto BoZMzjZmLLqXksaHgNXV
+label rMQfenWyAvwywiBvJDwT
+call Output.backSpace 0
+if-goto TVxaTbIqwUjZmDYIFgNZ
+label TVxaTbIqwUjZmDYIFgNZ
+push local 0
+call Output.printChar 1
+if-goto owqknzmQfTNEXqxoZLbp
+label owqknzmQfTNEXqxoZLbp
+push local 0
+return
+function Keyboard.readLine 2
+push argument 0
+call Output.printString 1
+if-goto oyNwrgdMaatiUbPuKGZg
+label oyNwrgdMaatiUbPuKGZg
+push constant 30
+call String.new 1
+pop local 0
+label HGqsCsuntFBzLQqZJyfL
+push constant 0
+not
+not
+if-goto fyTVEVQqUUhHIoCzdBrE
+call Keyboard.readChar 0
+pop local 1
+push local 1
+call String.newLine 0
+eq
+not
+if-goto XIUOFXSmfmmNrzryKYfU
+push local 0
+return
+goto mKQLuLDyoKKFbpBvLBzn
+label XIUOFXSmfmmNrzryKYfU
+label mKQLuLDyoKKFbpBvLBzn
+push local 1
+call String.backSpace 0
+eq
+not
+if-goto aHxQjijxHebsTLTjGFUE
+push local 0
+call String.eraseLastChar 1
+if-goto VPcNfDokuhgjDYGVmjHN
+label VPcNfDokuhgjDYGVmjHN
+goto jAEOrEOQFNzNhQEPMoyA
+label aHxQjijxHebsTLTjGFUE
+push local 0
+push local 1
+call String.appendChar 2
+if-goto wjgsAIrhoIptlDRsdskl
+label wjgsAIrhoIptlDRsdskl
+label jAEOrEOQFNzNhQEPMoyA
+goto HGqsCsuntFBzLQqZJyfL
+label fyTVEVQqUUhHIoCzdBrE
+function Keyboard.readInt 1
+push argument 0
+call Keyboard.readLine 1
+pop local 0
+push local 0
+call String.intValue 1
+return
