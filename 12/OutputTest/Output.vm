@@ -1,0 +1,1847 @@
+function Output.init 0
+call Output.initMap 0
+if-goto zujdSSSOruVpXYiONeGi
+label zujdSSSOruVpXYiONeGi
+push constant 0
+push constant 0
+call Output.moveCursor 2
+if-goto NShITmhSQvoJhYraINYh
+label NShITmhSQvoJhYraINYh
+push constant 0
+return
+function Output.initMap 1
+push constant 127
+call Array.new 1
+pop static 0
+push constant 0
+push constant 63
+push constant 63
+push constant 63
+push constant 63
+push constant 63
+push constant 63
+push constant 63
+push constant 63
+push constant 63
+push constant 0
+push constant 0
+call Output.create 12
+if-goto ShfZdlIvicpRdWzQAaLL
+label ShfZdlIvicpRdWzQAaLL
+push constant 32
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto fVnEztgdbVJVdfJwfywg
+label fVnEztgdbVJVdfJwfywg
+push constant 33
+push constant 12
+push constant 30
+push constant 30
+push constant 30
+push constant 12
+push constant 12
+push constant 0
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+call Output.create 12
+if-goto QNbmVqwKPxMaYhnITzuH
+label QNbmVqwKPxMaYhnITzuH
+push constant 34
+push constant 54
+push constant 54
+push constant 20
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto rhXsHitQqgYxXISKRPFO
+label rhXsHitQqgYxXISKRPFO
+push constant 35
+push constant 0
+push constant 18
+push constant 18
+push constant 63
+push constant 18
+push constant 18
+push constant 63
+push constant 18
+push constant 18
+push constant 0
+push constant 0
+call Output.create 12
+if-goto aeacXMdDuSJvpxOpToBE
+label aeacXMdDuSJvpxOpToBE
+push constant 36
+push constant 12
+push constant 30
+push constant 51
+push constant 3
+push constant 30
+push constant 48
+push constant 51
+push constant 30
+push constant 12
+push constant 12
+push constant 0
+call Output.create 12
+if-goto SfSqjhTnPJSRfdIKCbjW
+label SfSqjhTnPJSRfdIKCbjW
+push constant 37
+push constant 0
+push constant 0
+push constant 35
+push constant 51
+push constant 24
+push constant 12
+push constant 6
+push constant 51
+push constant 49
+push constant 0
+push constant 0
+call Output.create 12
+if-goto INCBJDFDWWSFFbhOIpSV
+label INCBJDFDWWSFFbhOIpSV
+push constant 38
+push constant 12
+push constant 30
+push constant 30
+push constant 12
+push constant 54
+push constant 27
+push constant 27
+push constant 27
+push constant 54
+push constant 0
+push constant 0
+call Output.create 12
+if-goto HMmySfYYaCoZHncfMFrs
+label HMmySfYYaCoZHncfMFrs
+push constant 39
+push constant 12
+push constant 12
+push constant 6
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto BDIGoYDMmawneMAihqzn
+label BDIGoYDMmawneMAihqzn
+push constant 40
+push constant 24
+push constant 12
+push constant 6
+push constant 6
+push constant 6
+push constant 6
+push constant 6
+push constant 12
+push constant 24
+push constant 0
+push constant 0
+call Output.create 12
+if-goto tQWzfbLPqvcCCQyxJWNY
+label tQWzfbLPqvcCCQyxJWNY
+push constant 41
+push constant 6
+push constant 12
+push constant 24
+push constant 24
+push constant 24
+push constant 24
+push constant 24
+push constant 12
+push constant 6
+push constant 0
+push constant 0
+call Output.create 12
+if-goto ONiXwEvSsmUTOoAVNwev
+label ONiXwEvSsmUTOoAVNwev
+push constant 42
+push constant 0
+push constant 0
+push constant 0
+push constant 51
+push constant 30
+push constant 63
+push constant 30
+push constant 51
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto TWXRVcELmboeTpcuccXL
+label TWXRVcELmboeTpcuccXL
+push constant 43
+push constant 0
+push constant 0
+push constant 0
+push constant 12
+push constant 12
+push constant 63
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto dnItjkIcZDFtyTEShXXH
+label dnItjkIcZDFtyTEShXXH
+push constant 44
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 12
+push constant 12
+push constant 6
+push constant 0
+call Output.create 12
+if-goto IiBCLkKulVpbGyhISjwV
+label IiBCLkKulVpbGyhISjwV
+push constant 45
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 63
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto PUSHyVaHMDhXwFYdEioi
+label PUSHyVaHMDhXwFYdEioi
+push constant 46
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+call Output.create 12
+if-goto BPwOdrqRrHKFIhenCEUy
+label BPwOdrqRrHKFIhenCEUy
+push constant 47
+push constant 0
+push constant 0
+push constant 32
+push constant 48
+push constant 24
+push constant 12
+push constant 6
+push constant 3
+push constant 1
+push constant 0
+push constant 0
+call Output.create 12
+if-goto xLrWnNairBwJWnSnafCQ
+label xLrWnNairBwJWnSnafCQ
+push constant 48
+push constant 12
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 12
+push constant 0
+push constant 0
+call Output.create 12
+if-goto vbJqajYxtKcBZKanctVu
+label vbJqajYxtKcBZKanctVu
+push constant 49
+push constant 12
+push constant 14
+push constant 15
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 63
+push constant 0
+push constant 0
+call Output.create 12
+if-goto EYNYkvgncKADfyHYOUYZ
+label EYNYkvgncKADfyHYOUYZ
+push constant 50
+push constant 30
+push constant 51
+push constant 48
+push constant 24
+push constant 12
+push constant 6
+push constant 3
+push constant 51
+push constant 63
+push constant 0
+push constant 0
+call Output.create 12
+if-goto mrPMZQboJWFrZmDxDdCd
+label mrPMZQboJWFrZmDxDdCd
+push constant 51
+push constant 30
+push constant 51
+push constant 48
+push constant 48
+push constant 28
+push constant 48
+push constant 48
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto TTHspgzLMrTMPqoMTkOM
+label TTHspgzLMrTMPqoMTkOM
+push constant 52
+push constant 16
+push constant 24
+push constant 28
+push constant 26
+push constant 25
+push constant 63
+push constant 24
+push constant 24
+push constant 60
+push constant 0
+push constant 0
+call Output.create 12
+if-goto SJrAcJCPQVRdnDgTevXg
+label SJrAcJCPQVRdnDgTevXg
+push constant 53
+push constant 63
+push constant 3
+push constant 3
+push constant 31
+push constant 48
+push constant 48
+push constant 48
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto tUmLkEEpxNACcOEhnReQ
+label tUmLkEEpxNACcOEhnReQ
+push constant 54
+push constant 28
+push constant 6
+push constant 3
+push constant 3
+push constant 31
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto MZbRcLszDmUeXtOBwiNZ
+label MZbRcLszDmUeXtOBwiNZ
+push constant 55
+push constant 63
+push constant 49
+push constant 48
+push constant 48
+push constant 24
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+call Output.create 12
+if-goto cUcxQkbuFoxiaNSzVpuv
+label cUcxQkbuFoxiaNSzVpuv
+push constant 56
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto rxzVmJBxoHNIoPLfThPY
+label rxzVmJBxoHNIoPLfThPY
+push constant 57
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 62
+push constant 48
+push constant 48
+push constant 24
+push constant 14
+push constant 0
+push constant 0
+call Output.create 12
+if-goto dLzTbibnxhDpRwTWZCGD
+label dLzTbibnxhDpRwTWZCGD
+push constant 58
+push constant 0
+push constant 0
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto KICQTmNJgrtFIwoyNmxW
+label KICQTmNJgrtFIwoyNmxW
+push constant 59
+push constant 0
+push constant 0
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+push constant 12
+push constant 12
+push constant 6
+push constant 0
+push constant 0
+call Output.create 12
+if-goto iVYZNmhYhFxKssCxCJwu
+label iVYZNmhYhFxKssCxCJwu
+push constant 60
+push constant 0
+push constant 0
+push constant 24
+push constant 12
+push constant 6
+push constant 3
+push constant 6
+push constant 12
+push constant 24
+push constant 0
+push constant 0
+call Output.create 12
+if-goto liNDlLBKsPHpNDWormCX
+label liNDlLBKsPHpNDWormCX
+push constant 61
+push constant 0
+push constant 0
+push constant 0
+push constant 63
+push constant 0
+push constant 0
+push constant 63
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto luWGNJgQWbCqRkCwPPGQ
+label luWGNJgQWbCqRkCwPPGQ
+push constant 62
+push constant 0
+push constant 0
+push constant 3
+push constant 6
+push constant 12
+push constant 24
+push constant 12
+push constant 6
+push constant 3
+push constant 0
+push constant 0
+call Output.create 12
+if-goto RtnufEqKfNvxViSnsZjJ
+label RtnufEqKfNvxViSnsZjJ
+push constant 64
+push constant 30
+push constant 51
+push constant 51
+push constant 59
+push constant 59
+push constant 59
+push constant 27
+push constant 3
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto RSrnLOBNyhBvPuuQRtGL
+label RSrnLOBNyhBvPuuQRtGL
+push constant 63
+push constant 30
+push constant 51
+push constant 51
+push constant 24
+push constant 12
+push constant 12
+push constant 0
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+call Output.create 12
+if-goto MXaTEYPUpBycSfSOMHUf
+label MXaTEYPUpBycSfSOMHUf
+push constant 65
+push constant 24
+push constant 24
+push constant 36
+push constant 36
+push constant 36
+push constant 126
+push constant 66
+push constant 66
+push constant 66
+push constant 0
+push constant 0
+call Output.create 12
+if-goto FLOcpWbyVGBwETkEYuKH
+label FLOcpWbyVGBwETkEYuKH
+push constant 66
+push constant 31
+push constant 51
+push constant 51
+push constant 51
+push constant 31
+push constant 51
+push constant 51
+push constant 51
+push constant 31
+push constant 0
+push constant 0
+call Output.create 12
+if-goto nemvvIccyZcfMXGzYGmH
+label nemvvIccyZcfMXGzYGmH
+push constant 67
+push constant 28
+push constant 54
+push constant 35
+push constant 3
+push constant 3
+push constant 3
+push constant 35
+push constant 54
+push constant 28
+push constant 0
+push constant 0
+call Output.create 12
+if-goto VdDIVIgUpgIBpHHlbmbc
+label VdDIVIgUpgIBpHHlbmbc
+push constant 68
+push constant 15
+push constant 27
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 27
+push constant 15
+push constant 0
+push constant 0
+call Output.create 12
+if-goto tdAYSGDHyrVcbqwjBVOG
+label tdAYSGDHyrVcbqwjBVOG
+push constant 69
+push constant 63
+push constant 51
+push constant 35
+push constant 11
+push constant 15
+push constant 11
+push constant 35
+push constant 51
+push constant 63
+push constant 0
+push constant 0
+call Output.create 12
+if-goto gUnOVsBIDMXtqchxUxfi
+label gUnOVsBIDMXtqchxUxfi
+push constant 70
+push constant 63
+push constant 51
+push constant 35
+push constant 11
+push constant 15
+push constant 11
+push constant 3
+push constant 3
+push constant 3
+push constant 0
+push constant 0
+call Output.create 12
+if-goto ROgFFGdkNHgdkGJMdVsu
+label ROgFFGdkNHgdkGJMdVsu
+push constant 71
+push constant 28
+push constant 54
+push constant 35
+push constant 3
+push constant 59
+push constant 51
+push constant 51
+push constant 54
+push constant 44
+push constant 0
+push constant 0
+call Output.create 12
+if-goto OLxlYEqNaLFYhhTTDpRo
+label OLxlYEqNaLFYhhTTDpRo
+push constant 72
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 63
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto FtWxjhqzEWtRgYuLEBpC
+label FtWxjhqzEWtRgYuLEBpC
+push constant 73
+push constant 30
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto fZpAMBzeujeRpuAkxogh
+label fZpAMBzeujeRpuAkxogh
+push constant 74
+push constant 60
+push constant 24
+push constant 24
+push constant 24
+push constant 24
+push constant 24
+push constant 27
+push constant 27
+push constant 14
+push constant 0
+push constant 0
+call Output.create 12
+if-goto zmJgcvQDWfqXaZdbfnhq
+label zmJgcvQDWfqXaZdbfnhq
+push constant 75
+push constant 51
+push constant 51
+push constant 51
+push constant 27
+push constant 15
+push constant 27
+push constant 51
+push constant 51
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto EnETdluYvPvZuSahwVpD
+label EnETdluYvPvZuSahwVpD
+push constant 76
+push constant 3
+push constant 3
+push constant 3
+push constant 3
+push constant 3
+push constant 3
+push constant 35
+push constant 51
+push constant 63
+push constant 0
+push constant 0
+call Output.create 12
+if-goto thoAdPywndDorBzPnJxV
+label thoAdPywndDorBzPnJxV
+push constant 77
+push constant 33
+push constant 51
+push constant 63
+push constant 63
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto OtFRKwzQGsaPEZtXgsyA
+label OtFRKwzQGsaPEZtXgsyA
+push constant 78
+push constant 51
+push constant 51
+push constant 55
+push constant 55
+push constant 63
+push constant 59
+push constant 59
+push constant 51
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto xWeXxOaSpsvcPKuOZZrO
+label xWeXxOaSpsvcPKuOZZrO
+push constant 79
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto sTmVvZgswDIxtveyLMrc
+label sTmVvZgswDIxtveyLMrc
+push constant 80
+push constant 31
+push constant 51
+push constant 51
+push constant 51
+push constant 31
+push constant 3
+push constant 3
+push constant 3
+push constant 3
+push constant 0
+push constant 0
+call Output.create 12
+if-goto PdHrXrVwPJUUWKbyVJzQ
+label PdHrXrVwPJUUWKbyVJzQ
+push constant 81
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 63
+push constant 59
+push constant 30
+push constant 48
+push constant 0
+call Output.create 12
+if-goto XnbXpeRexmnJqHKbCXoq
+label XnbXpeRexmnJqHKbCXoq
+push constant 82
+push constant 31
+push constant 51
+push constant 51
+push constant 51
+push constant 31
+push constant 27
+push constant 51
+push constant 51
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto hFqTfquvCVwwzFltjTsB
+label hFqTfquvCVwwzFltjTsB
+push constant 83
+push constant 30
+push constant 51
+push constant 51
+push constant 6
+push constant 28
+push constant 48
+push constant 51
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto wSQjOexbluSxEIlXwRmN
+label wSQjOexbluSxEIlXwRmN
+push constant 84
+push constant 63
+push constant 63
+push constant 45
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto ZunCRBEAxwpGekyejAMo
+label ZunCRBEAxwpGekyejAMo
+push constant 85
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto ynpEHPJeeFfZqSCNZPng
+label ynpEHPJeeFfZqSCNZPng
+push constant 86
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 30
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+call Output.create 12
+if-goto OuMcuWPmqbbjhGhwVLNu
+label OuMcuWPmqbbjhGhwVLNu
+push constant 87
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 63
+push constant 63
+push constant 63
+push constant 18
+push constant 0
+push constant 0
+call Output.create 12
+if-goto NOMJwkEzIHGyVQCECvrQ
+label NOMJwkEzIHGyVQCECvrQ
+push constant 88
+push constant 51
+push constant 51
+push constant 30
+push constant 30
+push constant 12
+push constant 30
+push constant 30
+push constant 51
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto NCEvvIHIQpSvBsxWbJMf
+label NCEvvIHIQpSvBsxWbJMf
+push constant 89
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 12
+push constant 12
+push constant 12
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto lWyHGjLPFfZpnUqkAMFf
+label lWyHGjLPFfZpnUqkAMFf
+push constant 90
+push constant 63
+push constant 51
+push constant 49
+push constant 24
+push constant 12
+push constant 6
+push constant 35
+push constant 51
+push constant 63
+push constant 0
+push constant 0
+call Output.create 12
+if-goto DMzIdheUKsULaxoIbpxu
+label DMzIdheUKsULaxoIbpxu
+push constant 91
+push constant 30
+push constant 6
+push constant 6
+push constant 6
+push constant 6
+push constant 6
+push constant 6
+push constant 6
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto oapOhflmPEibLpSZcHOW
+label oapOhflmPEibLpSZcHOW
+push constant 92
+push constant 0
+push constant 0
+push constant 1
+push constant 3
+push constant 6
+push constant 12
+push constant 24
+push constant 48
+push constant 32
+push constant 0
+push constant 0
+call Output.create 12
+if-goto VDaRGKHSmqbMMHLmcXKJ
+label VDaRGKHSmqbMMHLmcXKJ
+push constant 93
+push constant 30
+push constant 24
+push constant 24
+push constant 24
+push constant 24
+push constant 24
+push constant 24
+push constant 24
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto teiiWupRzFKXAmfdlfKQ
+label teiiWupRzFKXAmfdlfKQ
+push constant 94
+push constant 8
+push constant 28
+push constant 54
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto tjBcHGumPGchJIxjiSly
+label tjBcHGumPGchJIxjiSly
+push constant 95
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 63
+push constant 0
+call Output.create 12
+if-goto fKwVFlaHreXGRYDbiQEW
+label fKwVFlaHreXGRYDbiQEW
+push constant 96
+push constant 6
+push constant 12
+push constant 24
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto uWhlfEzrXOukgXIrEZAc
+label uWhlfEzrXOukgXIrEZAc
+push constant 97
+push constant 0
+push constant 0
+push constant 0
+push constant 14
+push constant 24
+push constant 30
+push constant 27
+push constant 27
+push constant 54
+push constant 0
+push constant 0
+call Output.create 12
+if-goto vfjIXeHDCPWUarGEKwRi
+label vfjIXeHDCPWUarGEKwRi
+push constant 98
+push constant 3
+push constant 3
+push constant 3
+push constant 15
+push constant 27
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto jQnkXoYAfRsYbGUBVgGs
+label jQnkXoYAfRsYbGUBVgGs
+push constant 99
+push constant 0
+push constant 0
+push constant 0
+push constant 30
+push constant 51
+push constant 3
+push constant 3
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto vOLGheEPwNasaMDCHvoZ
+label vOLGheEPwNasaMDCHvoZ
+push constant 100
+push constant 48
+push constant 48
+push constant 48
+push constant 60
+push constant 54
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto UUiQABaOHkHyVYwgYeLJ
+label UUiQABaOHkHyVYwgYeLJ
+push constant 101
+push constant 0
+push constant 0
+push constant 0
+push constant 30
+push constant 51
+push constant 63
+push constant 3
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto ZNyMcSDsLdzkRSjfuijm
+label ZNyMcSDsLdzkRSjfuijm
+push constant 102
+push constant 28
+push constant 54
+push constant 38
+push constant 6
+push constant 15
+push constant 6
+push constant 6
+push constant 6
+push constant 15
+push constant 0
+push constant 0
+call Output.create 12
+if-goto pIprvcaeIkOJwdGMGDXe
+label pIprvcaeIkOJwdGMGDXe
+push constant 103
+push constant 0
+push constant 0
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 62
+push constant 48
+push constant 51
+push constant 30
+push constant 0
+call Output.create 12
+if-goto vAXgsMtXjfjWMaQVnXPL
+label vAXgsMtXjfjWMaQVnXPL
+push constant 104
+push constant 3
+push constant 3
+push constant 3
+push constant 27
+push constant 55
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto ggLjApkzLlEUQbgfxVlD
+label ggLjApkzLlEUQbgfxVlD
+push constant 105
+push constant 12
+push constant 12
+push constant 0
+push constant 14
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto iiVYeJfbqKuzepknZYol
+label iiVYeJfbqKuzepknZYol
+push constant 106
+push constant 48
+push constant 48
+push constant 0
+push constant 56
+push constant 48
+push constant 48
+push constant 48
+push constant 48
+push constant 51
+push constant 30
+push constant 0
+call Output.create 12
+if-goto RLZmazoaIMlHyHWDaDLB
+label RLZmazoaIMlHyHWDaDLB
+push constant 107
+push constant 3
+push constant 3
+push constant 3
+push constant 51
+push constant 27
+push constant 15
+push constant 15
+push constant 27
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto MHMWmtzMvAfFpApPCiIZ
+label MHMWmtzMvAfFpApPCiIZ
+push constant 108
+push constant 14
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto RVeqmUawgaPBZMhkRiPh
+label RVeqmUawgaPBZMhkRiPh
+push constant 109
+push constant 0
+push constant 0
+push constant 0
+push constant 29
+push constant 63
+push constant 43
+push constant 43
+push constant 43
+push constant 43
+push constant 0
+push constant 0
+call Output.create 12
+if-goto KEPjkSIEybngaVCdMCoo
+label KEPjkSIEybngaVCdMCoo
+push constant 110
+push constant 0
+push constant 0
+push constant 0
+push constant 29
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto jdZNeKqEhZePOpOiQFHU
+label jdZNeKqEhZePOpOiQFHU
+push constant 111
+push constant 0
+push constant 0
+push constant 0
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto sJBfoXZkukAUaqdmrtHN
+label sJBfoXZkukAUaqdmrtHN
+push constant 112
+push constant 0
+push constant 0
+push constant 0
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 31
+push constant 3
+push constant 3
+push constant 0
+call Output.create 12
+if-goto UrNgfETSbRnTCdMUCxye
+label UrNgfETSbRnTCdMUCxye
+push constant 113
+push constant 0
+push constant 0
+push constant 0
+push constant 30
+push constant 51
+push constant 51
+push constant 51
+push constant 62
+push constant 48
+push constant 48
+push constant 0
+call Output.create 12
+if-goto HyOmHbQyPYpJpSzkzpFE
+label HyOmHbQyPYpJpSzkzpFE
+push constant 114
+push constant 0
+push constant 0
+push constant 0
+push constant 29
+push constant 55
+push constant 51
+push constant 3
+push constant 3
+push constant 7
+push constant 0
+push constant 0
+call Output.create 12
+if-goto ZVoWPJgHWqSGehbGvJSY
+label ZVoWPJgHWqSGehbGvJSY
+push constant 115
+push constant 0
+push constant 0
+push constant 0
+push constant 30
+push constant 51
+push constant 6
+push constant 24
+push constant 51
+push constant 30
+push constant 0
+push constant 0
+call Output.create 12
+if-goto zoFLGvtQBTzECPAvzIgk
+label zoFLGvtQBTzECPAvzIgk
+push constant 116
+push constant 4
+push constant 6
+push constant 6
+push constant 15
+push constant 6
+push constant 6
+push constant 6
+push constant 54
+push constant 28
+push constant 0
+push constant 0
+call Output.create 12
+if-goto NUmtSmSllYTRbCSqwsnO
+label NUmtSmSllYTRbCSqwsnO
+push constant 117
+push constant 0
+push constant 0
+push constant 0
+push constant 27
+push constant 27
+push constant 27
+push constant 27
+push constant 27
+push constant 54
+push constant 0
+push constant 0
+call Output.create 12
+if-goto MddNVWLnUuqOfSbXuFSb
+label MddNVWLnUuqOfSbXuFSb
+push constant 118
+push constant 0
+push constant 0
+push constant 0
+push constant 51
+push constant 51
+push constant 51
+push constant 51
+push constant 30
+push constant 12
+push constant 0
+push constant 0
+call Output.create 12
+if-goto AoVWPXxPnsBJsUWRwErs
+label AoVWPXxPnsBJsUWRwErs
+push constant 119
+push constant 0
+push constant 0
+push constant 0
+push constant 51
+push constant 51
+push constant 51
+push constant 63
+push constant 63
+push constant 18
+push constant 0
+push constant 0
+call Output.create 12
+if-goto JkGwYvsijuwPOnYPdRjn
+label JkGwYvsijuwPOnYPdRjn
+push constant 120
+push constant 0
+push constant 0
+push constant 0
+push constant 51
+push constant 30
+push constant 12
+push constant 12
+push constant 30
+push constant 51
+push constant 0
+push constant 0
+call Output.create 12
+if-goto FwMozanxWUpTFLCuvqKr
+label FwMozanxWUpTFLCuvqKr
+push constant 121
+push constant 0
+push constant 0
+push constant 0
+push constant 51
+push constant 51
+push constant 51
+push constant 62
+push constant 48
+push constant 24
+push constant 15
+push constant 0
+call Output.create 12
+if-goto tfrXxFlCyfGtaFgibpAa
+label tfrXxFlCyfGtaFgibpAa
+push constant 122
+push constant 0
+push constant 0
+push constant 0
+push constant 63
+push constant 27
+push constant 12
+push constant 6
+push constant 51
+push constant 63
+push constant 0
+push constant 0
+call Output.create 12
+if-goto wCUbjpTflONRQIYhhQOz
+label wCUbjpTflONRQIYhhQOz
+push constant 123
+push constant 56
+push constant 12
+push constant 12
+push constant 12
+push constant 7
+push constant 12
+push constant 12
+push constant 12
+push constant 56
+push constant 0
+push constant 0
+call Output.create 12
+if-goto TqFielJTNJrpKCjXiXWU
+label TqFielJTNJrpKCjXiXWU
+push constant 124
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 12
+push constant 0
+push constant 0
+call Output.create 12
+if-goto gvpMMHTMMYidrakUBfMk
+label gvpMMHTMMYidrakUBfMk
+push constant 125
+push constant 7
+push constant 12
+push constant 12
+push constant 12
+push constant 56
+push constant 12
+push constant 12
+push constant 12
+push constant 7
+push constant 0
+push constant 0
+call Output.create 12
+if-goto ZmWbnCIeDkQFqyfWHQHd
+label ZmWbnCIeDkQFqyfWHQHd
+push constant 126
+push constant 38
+push constant 45
+push constant 25
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Output.create 12
+if-goto cLbSVYcBFYocdjIqpAan
+label cLbSVYcBFYocdjIqpAan
+push constant 0
+return
+function Output.create 1
+push constant 11
+call Array.new 1
+pop local 0
+push local 0
+push static 0
+push argument 0
+add
+pop pointer 1
+pop that 0
+push argument 1
+push local 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push argument 2
+push local 0
+push constant 1
+add
+pop pointer 1
+pop that 0
+push argument 3
+push local 0
+push constant 2
+add
+pop pointer 1
+pop that 0
+push argument 4
+push local 0
+push constant 3
+add
+pop pointer 1
+pop that 0
+push argument 5
+push local 0
+push constant 4
+add
+pop pointer 1
+pop that 0
+push argument 6
+push local 0
+push constant 5
+add
+pop pointer 1
+pop that 0
+push argument 7
+push local 0
+push constant 6
+add
+pop pointer 1
+pop that 0
+push argument 8
+push local 0
+push constant 7
+add
+pop pointer 1
+pop that 0
+push argument 9
+push local 0
+push constant 8
+add
+pop pointer 1
+pop that 0
+push argument 10
+push local 0
+push constant 9
+add
+pop pointer 1
+pop that 0
+push argument 11
+push local 0
+push constant 10
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function Output.getMap 0
+push argument 0
+push constant 32
+lt
+push argument 0
+push constant 126
+gt
+or
+not
+if-goto BJRmNQNYmqUQBqDJuVRz
+push constant 0
+pop argument 0
+goto wcoAPSAQqnrdnybYXSUO
+label BJRmNQNYmqUQBqDJuVRz
+label wcoAPSAQqnrdnybYXSUO
+push static 0
+push argument 0
+add
+pop pointer 1
+push that 0
+return
+function Output.moveCursor 7
+push argument 0
+pop static 1
+push argument 1
+pop static 2
+push static 1
+push constant 11
+call Math.multiply 2
+pop local 1
+push static 2
+push constant 2
+call Math.divide 2
+pop local 2
+push static 2
+push constant 1
+and
+push constant 0
+eq
+not
+if-goto IHaDVzmSTWIRkSNpYiQZ
+push constant 255
+pop local 3
+push local 3
+not
+pop local 3
+push constant 1
+pop local 4
+goto AtGmWHYxisFPTbPPSrvV
+label IHaDVzmSTWIRkSNpYiQZ
+push constant 255
+pop local 3
+push constant 256
+pop local 4
+label AtGmWHYxisFPTbPPSrvV
+label PYGOfYHaPQCsbNdUalKu
+push local 0
+push constant 11
+lt
+not
+if-goto cQiQfFxzFfHLCrunNwJQ
+push constant 16384
+push local 1
+push constant 32
+call Math.multiply 2
+add
+push local 2
+add
+pop local 5
+push local 5
+call Memory.peek 1
+pop local 6
+push local 6
+push local 3
+and
+push constant 0
+push local 4
+call Math.multiply 2
+add
+pop local 6
+push local 5
+push local 6
+call Memory.poke 2
+if-goto QXbRwjuYQsJJwwWIIblH
+label QXbRwjuYQsJJwwWIIblH
+push local 1
+push constant 1
+add
+pop local 1
+push local 0
+push constant 1
+add
+pop local 0
+goto PYGOfYHaPQCsbNdUalKu
+label cQiQfFxzFfHLCrunNwJQ
+push constant 0
+return
+function Output.printChar 10
+push argument 0
+call Output.getMap 1
+pop local 1
+push static 1
+push constant 11
+call Math.multiply 2
+pop local 4
+push static 2
+push constant 2
+call Math.divide 2
+pop local 5
+push static 2
+push constant 1
+and
+push constant 0
+eq
+not
+if-goto NCbBfJoAurSLoOfbavKN
+push constant 255
+pop local 2
+push local 2
+not
+pop local 2
+push constant 1
+pop local 3
+goto ULZtjZMJFyNPxmZdOBTd
+label NCbBfJoAurSLoOfbavKN
+push constant 255
+pop local 2
+push constant 256
+pop local 3
+label ULZtjZMJFyNPxmZdOBTd
+label rLFvxeSVXvBEaAjfUhxG
+push local 0
+push constant 11
+lt
+not
+if-goto hTgrCzfGDWTXGlONgIam
+push constant 16384
+push local 4
+push constant 32
+call Math.multiply 2
+add
+push local 5
+add
+pop local 6
+push local 6
+call Memory.peek 1
+pop local 7
+push local 7
+push local 2
+and
+push local 1
+push local 0
+add
+pop pointer 1
+push that 0
+push local 3
+call Math.multiply 2
+add
+pop local 7
+push local 6
+push local 7
+call Memory.poke 2
+if-goto OFCebJSIhZyBfjWXhUZH
+label OFCebJSIhZyBfjWXhUZH
+push local 4
+push constant 1
+add
+pop local 4
+push local 0
+push constant 1
+add
+pop local 0
+goto rLFvxeSVXvBEaAjfUhxG
+label hTgrCzfGDWTXGlONgIam
+push static 2
+push constant 63
+eq
+not
+if-goto DZmqPADPARpFaHnKnOkN
+push static 1
+push constant 1
+add
+pop local 8
+push constant 0
+pop local 9
+goto lgbIWHVBLijJGhwuhAKi
+label DZmqPADPARpFaHnKnOkN
+push static 1
+pop local 8
+push static 2
+push constant 1
+add
+pop local 9
+label lgbIWHVBLijJGhwuhAKi
+push local 8
+push constant 23
+eq
+not
+if-goto LYDOxvKpqDpJlJuDrFdj
+push constant 0
+pop local 8
+goto YgnmRWzmPTFzYsmVrdfH
+label LYDOxvKpqDpJlJuDrFdj
+label YgnmRWzmPTFzYsmVrdfH
+push local 8
+push local 9
+call Output.moveCursor 2
+if-goto XMWrfNeShLuiaCQpJfgf
+label XMWrfNeShLuiaCQpJfgf
+push constant 0
+return
+function Output.printString 2
+push argument 0
+call String.length 1
+pop local 1
+label QqYMOscVodzGuWNhOVQr
+push local 0
+push local 1
+lt
+not
+if-goto lyWwUhCgllWIbaOUZhIi
+push argument 0
+push local 0
+call String.charAt 2
+call Output.printChar 1
+if-goto icYaHnyfiyLqtubcAHwU
+label icYaHnyfiyLqtubcAHwU
+push local 0
+push constant 1
+add
+pop local 0
+goto QqYMOscVodzGuWNhOVQr
+label lyWwUhCgllWIbaOUZhIi
+push constant 0
+return
+function Output.printInt 1
+push constant 6
+call String.new 1
+pop local 0
+push local 0
+push argument 0
+call String.setInt 2
+if-goto FOunFhdquscqRSYaFSSD
+label FOunFhdquscqRSYaFSSD
+push local 0
+call Output.printString 1
+if-goto PUqNiiriybltvjqjocSa
+label PUqNiiriybltvjqjocSa
+push constant 0
+return
+function Output.println 1
+push static 1
+push constant 1
+add
+pop local 0
+push local 0
+push constant 23
+eq
+not
+if-goto LvWQRbagePdRExssQjLe
+push constant 0
+pop local 0
+goto qsHdOBhXdGWvPUHFFtXp
+label LvWQRbagePdRExssQjLe
+label qsHdOBhXdGWvPUHFFtXp
+push local 0
+push constant 0
+call Output.moveCursor 2
+if-goto JtvKOQmsYQtCuVSydDhF
+label JtvKOQmsYQtCuVSydDhF
+push constant 0
+return
+function Output.backSpace 2
+push static 2
+push constant 0
+eq
+not
+if-goto wzOLSBjDnMwvfTsOQWlE
+push static 1
+push constant 1
+sub
+pop local 0
+push constant 63
+pop local 1
+goto QpvomHgjlDPVUeuRbpzU
+label wzOLSBjDnMwvfTsOQWlE
+push static 1
+pop local 0
+push static 2
+push constant 1
+sub
+pop local 1
+label QpvomHgjlDPVUeuRbpzU
+push local 0
+push constant 0
+lt
+not
+if-goto sFokUEBeRNjqGVFNkIDB
+push local 0
+push constant 23
+add
+pop local 0
+goto nmZpSkgpSsbLTikghXyq
+label sFokUEBeRNjqGVFNkIDB
+label nmZpSkgpSsbLTikghXyq
+push local 0
+push local 1
+call Output.moveCursor 2
+if-goto xEAycivqEOzLmsnfephr
+label xEAycivqEOzLmsnfephr
+push constant 0
+return
