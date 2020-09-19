@@ -1,0 +1,365 @@
+function Screen.init 1
+call Screen.clearScreen 0
+if-goto NMgIboOJoYdLKAKeFjIm
+label NMgIboOJoYdLKAKeFjIm
+push constant 0
+not
+call Screen.setColor 1
+if-goto GekhdLYtfBzDBeJZiXXt
+label GekhdLYtfBzDBeJZiXXt
+push constant 16
+call Array.new 1
+pop static 0
+push constant 1
+push static 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+pop local 0
+label KqFmPEMnGmBnSwYseVVI
+push local 0
+push constant 15
+lt
+not
+if-goto UAFUJjeYLObdIVbnMSvR
+push static 0
+push local 0
+add
+pop pointer 1
+push that 0
+push static 0
+push local 0
+add
+pop pointer 1
+push that 0
+add
+push static 0
+push local 0
+push constant 1
+add
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto KqFmPEMnGmBnSwYseVVI
+label UAFUJjeYLObdIVbnMSvR
+push constant 0
+return
+function Screen.clearScreen 1
+label DBhldHgwMlrEuRwDwMiv
+push local 0
+push constant 8192
+lt
+not
+if-goto yOpiKlhjchSZUgJdvGKG
+push constant 16384
+push local 0
+add
+push constant 0
+call Memory.poke 2
+if-goto ggViCnSWJXtXBIvFqumg
+label ggViCnSWJXtXBIvFqumg
+push local 0
+push constant 1
+add
+pop local 0
+goto DBhldHgwMlrEuRwDwMiv
+label yOpiKlhjchSZUgJdvGKG
+push constant 0
+return
+function Screen.setColor 0
+push argument 0
+pop static 1
+push constant 0
+return
+function Screen.drawPixel 4
+push constant 16384
+push argument 1
+push constant 32
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push argument 0
+push constant 15
+and
+pop local 1
+push static 0
+push local 1
+add
+pop pointer 1
+push that 0
+not
+pop local 2
+push local 0
+call Memory.peek 1
+pop local 3
+push local 3
+push local 2
+and
+push static 1
+push static 0
+push local 1
+add
+pop pointer 1
+push that 0
+and
+add
+pop local 3
+push local 0
+push local 3
+call Memory.poke 2
+if-goto LceImgKCOCMpyLPHlNPH
+label LceImgKCOCMpyLPHlNPH
+push constant 0
+return
+function Screen.drawLine 6
+push argument 0
+push argument 2
+gt
+not
+if-goto waMoZznkaEUWmICVfPJX
+push argument 2
+pop local 2
+push argument 0
+pop argument 2
+push local 2
+pop argument 0
+push argument 3
+pop local 3
+push argument 1
+pop argument 3
+push local 3
+pop argument 1
+goto NAVpWjSoUWkfchZyTUIT
+label waMoZznkaEUWmICVfPJX
+label NAVpWjSoUWkfchZyTUIT
+push argument 2
+push argument 0
+sub
+pop local 0
+push argument 3
+push argument 1
+sub
+pop local 1
+push local 0
+push constant 0
+eq
+push local 1
+push constant 0
+eq
+or
+not
+if-goto fIKhaHliXaMTkYuHpZqY
+push argument 0
+push argument 2
+call Math.min 2
+push argument 1
+push argument 3
+call Math.min 2
+push argument 0
+push argument 2
+call Math.max 2
+push argument 1
+push argument 3
+call Math.max 2
+call Screen.drawRectangle 4
+if-goto nWVbQGbytbPxoDChTXns
+label nWVbQGbytbPxoDChTXns
+push constant 0
+return
+goto wpKxBqUhdMhQwNAlKcFX
+label fIKhaHliXaMTkYuHpZqY
+label wpKxBqUhdMhQwNAlKcFX
+push local 1
+push constant 0
+lt
+not
+if-goto lPcFURPnYtgIHtrVucFx
+push argument 3
+pop local 3
+push argument 1
+pop argument 3
+push local 3
+pop argument 1
+push constant 0
+not
+pop local 4
+push local 1
+neg
+pop local 1
+goto aBwXhCGPcjrnTIIVveTF
+label lPcFURPnYtgIHtrVucFx
+label aBwXhCGPcjrnTIIVveTF
+push constant 0
+pop local 2
+push constant 0
+pop local 3
+label AjEpsjDlHJzRPqJPwszh
+push local 2
+push local 0
+gt
+push local 3
+push local 1
+gt
+or
+not
+not
+if-goto krCCmeIXHbEGhwiKdauj
+push local 4
+not
+if-goto JHwqyUaWdnLpKabcMtFy
+push argument 0
+push local 2
+add
+push argument 3
+push local 3
+sub
+call Screen.drawPixel 2
+if-goto LAJVZRVdpEJzVizABcdN
+label LAJVZRVdpEJzVizABcdN
+goto iPFzvHAhBQBtygsjMBlz
+label JHwqyUaWdnLpKabcMtFy
+push argument 0
+push local 2
+add
+push argument 1
+push local 3
+add
+call Screen.drawPixel 2
+if-goto WHDeEwbgihLrsxYcjVqE
+label WHDeEwbgihLrsxYcjVqE
+label iPFzvHAhBQBtygsjMBlz
+push local 5
+push constant 0
+lt
+not
+if-goto kSLvWIZCbhfEcEABiDGq
+push local 2
+push constant 1
+add
+pop local 2
+push local 5
+push local 1
+add
+pop local 5
+goto fGODdtlwBiwJgvQUAwSv
+label kSLvWIZCbhfEcEABiDGq
+push local 3
+push constant 1
+add
+pop local 3
+push local 5
+push local 0
+sub
+pop local 5
+label fGODdtlwBiwJgvQUAwSv
+goto AjEpsjDlHJzRPqJPwszh
+label krCCmeIXHbEGhwiKdauj
+push constant 0
+return
+function Screen.drawRectangle 2
+push argument 2
+push constant 1
+add
+pop argument 2
+push argument 3
+push constant 1
+add
+pop argument 3
+push argument 1
+pop local 0
+label lOqcjFPwjsmWceuPmofb
+push local 0
+push argument 3
+lt
+not
+if-goto ijPQGvNFimqAIodflRhw
+push argument 0
+pop local 1
+label gJrYQmJlCfEYqkLLddcF
+push local 1
+push argument 2
+lt
+not
+if-goto FCldLHNGRmewhJJKASsD
+push local 1
+push local 0
+call Screen.drawPixel 2
+if-goto ltUjprOhFtUHadlmbjnl
+label ltUjprOhFtUHadlmbjnl
+push local 1
+push constant 1
+add
+pop local 1
+goto gJrYQmJlCfEYqkLLddcF
+label FCldLHNGRmewhJJKASsD
+push local 0
+push constant 1
+add
+pop local 0
+goto lOqcjFPwjsmWceuPmofb
+label ijPQGvNFimqAIodflRhw
+push constant 0
+return
+function Screen.drawCircle 2
+push argument 2
+push constant 181
+gt
+not
+if-goto RRSzvGiJFKadngLLlFox
+push constant 0
+return
+goto gObRIgbIYLgIqQnSMmwC
+label RRSzvGiJFKadngLLlFox
+label gObRIgbIYLgIqQnSMmwC
+push argument 2
+neg
+pop local 0
+label xUkumqjwoxdwDZJMbaOE
+push local 0
+push argument 2
+gt
+not
+not
+if-goto sQkjZBAtMKVBoNfvrjWd
+push argument 2
+push argument 2
+call Math.multiply 2
+push local 0
+push local 0
+call Math.multiply 2
+sub
+call Math.sqrt 1
+pop local 1
+push argument 0
+push local 1
+sub
+push argument 1
+push local 0
+add
+push argument 0
+push local 1
+add
+push argument 1
+push local 0
+add
+call Screen.drawLine 4
+if-goto GmZTZFPPIXIbNcqcjJFT
+label GmZTZFPPIXIbNcqcjJFT
+push local 0
+push constant 1
+add
+pop local 0
+goto xUkumqjwoxdwDZJMbaOE
+label sQkjZBAtMKVBoNfvrjWd
+push constant 0
+return
