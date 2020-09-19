@@ -54,8 +54,10 @@ class Main {
         do Output.println();
         
         let s = "456";
+        do Output.printInt(s.length());
         do Output.printString("intValue: ");
-        do Output.printInt(s.intValue());        // intValue: 456
+        //do Output.printInt(s.intValue());        // intValue: 456
+        do Output.printString(s);
         do Output.println();
         
         let s = "-32123";

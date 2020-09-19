@@ -1,0 +1,251 @@
+function String.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+push constant 1
+add
+call Array.new 1
+pop this 0
+push constant 0
+pop this 1
+push pointer 0
+return
+function String.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Array.dispose 1
+if-goto pJLwDOuCKNnXpxLbUnSP
+label pJLwDOuCKNnXpxLbUnSP
+push pointer 0
+call Memory.deAlloc 1
+if-goto FFzjFvySbeKeBWQZOTnT
+label FFzjFvySbeKeBWQZOTnT
+push constant 0
+return
+function String.length 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function String.charAt 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+add
+pop pointer 1
+push that 0
+return
+function String.setCharAt 0
+push argument 0
+pop pointer 0
+push argument 2
+push this 0
+push argument 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function String.appendChar 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 0
+push this 1
+add
+pop pointer 1
+pop that 0
+push this 1
+push constant 1
+add
+pop this 1
+push pointer 0
+return
+function String.eraseLastChar 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+sub
+pop this 1
+push constant 0
+return
+function String.intValue 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push this 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 45
+eq
+not
+if-goto jIleZAmjraSqcnsKtmOq
+push constant 1
+pop local 1
+goto ZhExOmUORLQeVTPgPgId
+label jIleZAmjraSqcnsKtmOq
+label ZhExOmUORLQeVTPgPgId
+label nWoPAZeRVEmyODWZFfmY
+push local 1
+push this 1
+lt
+not
+if-goto QmXmUTbberczWUgTQShz
+push local 0
+push constant 10
+call Math.multiply 2
+push this 0
+push local 1
+add
+pop pointer 1
+push that 0
+push constant 48
+sub
+add
+pop local 0
+push local 1
+push constant 1
+add
+pop local 1
+goto nWoPAZeRVEmyODWZFfmY
+label QmXmUTbberczWUgTQShz
+push this 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 45
+eq
+not
+if-goto XvWpnHfDJgDZZudeinph
+push local 0
+neg
+pop local 0
+goto vGrDChvQlXQQDIGmDThD
+label XvWpnHfDJgDZZudeinph
+label vGrDChvQlXQQDIGmDThD
+push local 0
+return
+function String.__setInt 1
+push argument 0
+pop pointer 0
+push argument 1
+push constant 10
+lt
+not
+if-goto QzLRckpiJIZJatIJRqHS
+push pointer 0
+push constant 48
+push argument 1
+add
+call String.appendChar 2
+if-goto dSqSabJIavQTWNiLXMDG
+label dSqSabJIavQTWNiLXMDG
+push constant 0
+return
+goto FJmHJShDNFhRSdtnoulH
+label QzLRckpiJIZJatIJRqHS
+label FJmHJShDNFhRSdtnoulH
+push argument 1
+push constant 10
+call Math.divide 2
+pop local 0
+push pointer 0
+push local 0
+call String.__setInt 2
+if-goto bcvnJztuLJzuCWJamQoN
+label bcvnJztuLJzuCWJamQoN
+push pointer 0
+push constant 48
+push argument 1
+add
+push local 0
+push constant 10
+call Math.multiply 2
+sub
+call String.appendChar 2
+if-goto XQgCpePLwkONNMznvvbF
+label XQgCpePLwkONNMznvvbF
+push constant 0
+return
+function String.setInt 1
+push argument 0
+pop pointer 0
+push constant 0
+pop this 1
+push argument 1
+push constant 0
+lt
+not
+if-goto EbFMFlvArUPVYTiqKVkh
+push pointer 0
+push constant 45
+call String.appendChar 2
+if-goto UFPxKVkwRzVzAGdIjVSi
+label UFPxKVkwRzVzAGdIjVSi
+push argument 1
+neg
+pop argument 1
+goto UuKxyhLHFtCWmJlApfHH
+label EbFMFlvArUPVYTiqKVkh
+label UuKxyhLHFtCWmJlApfHH
+push argument 1
+neg
+pop local 0
+push argument 1
+push constant 0
+eq
+not
+if-goto PGNHByOveMZFcBvmEcaS
+push pointer 0
+push constant 48
+call String.appendChar 2
+if-goto jMtLRGXGoUgqEQXXfzIn
+label jMtLRGXGoUgqEQXXfzIn
+push constant 0
+return
+goto PHBMsMtdxYVKdYdRaudM
+label PGNHByOveMZFcBvmEcaS
+label PHBMsMtdxYVKdYdRaudM
+push argument 1
+push local 0
+eq
+not
+if-goto AesuVgOBeDFweimWPwLY
+push pointer 0
+push constant 48
+push constant 3
+add
+call String.appendChar 2
+if-goto IOudINJuSVWklbUxbMYG
+label IOudINJuSVWklbUxbMYG
+push argument 1
+push constant 30000
+sub
+pop argument 1
+goto FrHMySyatGKFCWfpTCtI
+label AesuVgOBeDFweimWPwLY
+label FrHMySyatGKFCWfpTCtI
+push pointer 0
+push argument 1
+call String.__setInt 2
+if-goto dzIRNYtQDzgKOktdtaji
+label dzIRNYtQDzgKOktdtaji
+push constant 0
+return
+function String.newLine 0
+push constant 128
+return
+function String.backSpace 0
+push constant 129
+return
+function String.doubleQuote 0
+push constant 34
+return
