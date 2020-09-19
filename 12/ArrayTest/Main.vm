@@ -1,0 +1,119 @@
+function Main.main 4
+push constant 8000
+pop local 0
+push constant 3
+call Array.new 1
+pop local 1
+push constant 222
+push local 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+push local 1
+push constant 2
+add
+pop pointer 1
+push that 0
+push local 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 3
+call Array.new 1
+pop local 2
+push local 1
+push constant 2
+add
+pop pointer 1
+push that 0
+push constant 100
+sub
+push local 2
+push constant 1
+add
+pop pointer 1
+pop that 0
+push local 2
+push constant 1
+add
+pop pointer 1
+push that 0
+push local 0
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 500
+call Array.new 1
+pop local 3
+push local 1
+push constant 2
+add
+pop pointer 1
+push that 0
+push local 2
+push constant 1
+add
+pop pointer 1
+push that 0
+sub
+push local 3
+push constant 499
+add
+pop pointer 1
+pop that 0
+push local 3
+push constant 499
+add
+pop pointer 1
+push that 0
+push local 0
+push constant 2
+add
+pop pointer 1
+pop that 0
+push local 1
+call Array.dispose 1
+if-goto EYkxFyjlJUxXYBwGrBkr
+label EYkxFyjlJUxXYBwGrBkr
+push local 2
+call Array.dispose 1
+if-goto sdjjTAsQcuqLgLcBlcxc
+label sdjjTAsQcuqLgLcBlcxc
+push constant 3
+call Array.new 1
+pop local 2
+push local 3
+push constant 499
+add
+pop pointer 1
+push that 0
+push constant 90
+sub
+push local 2
+push constant 0
+add
+pop pointer 1
+pop that 0
+push local 2
+push constant 0
+add
+pop pointer 1
+push that 0
+push local 0
+push constant 3
+add
+pop pointer 1
+pop that 0
+push local 3
+call Array.dispose 1
+if-goto oUSKZbjtOvODgsItPxCp
+label oUSKZbjtOvODgsItPxCp
+push local 2
+call Array.dispose 1
+if-goto NBxPcCZXaEBfhoqFLELX
+label NBxPcCZXaEBfhoqFLELX
+push constant 0
+return
